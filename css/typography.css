@@ -1,0 +1,106 @@
+html body {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html body p,
+html body li,
+html body td,
+html body th {
+  font-size: 16px !important;
+  line-height: 1.7;
+}
+
+html body th {
+  font-weight: 600;
+}
+
+html body h1 {
+  font-size: clamp(34px, 4vw, 48px);
+}
+
+html body h2 {
+  font-size: clamp(27px, 3vw, 36px);
+}
+
+html body h3 {
+  font-size: 21px;
+}
+
+html body h4 {
+  font-size: 18px;
+}
+
+html body h5 {
+  font-size: 17px;
+}
+
+html body small,
+html body .about-eyebrow,
+html body .career-eyebrow,
+html body .contact-eyebrow,
+html body .media-eyebrow,
+html body .detail-eyebrow {
+  font-size: 13px !important;
+}
+
+html body button,
+html body input,
+html body select,
+html body textarea {
+  font: inherit;
+}
+
+html body input,
+html body select,
+html body textarea {
+  font-size: 16px !important;
+}
+
+html body .nav a {
+  font-size: 14px !important;
+}
+
+html body .topbar {
+  font-size: 13px !important;
+}
+
+html body .btn,
+html body .detail-card a,
+html body .detail-anchor-nav a,
+html body .detail-footer-links a,
+html body .detail-footer-home,
+html body .career-status,
+html body .detail-status,
+html body .footer li a,
+html body .contact p {
+  font-size: 14px !important;
+}
+
+html body .btn.xs {
+  font-size: 13px !important;
+}
+
+@media (max-width: 600px) {
+  html body p,
+  html body li,
+  html body td,
+  html body th {
+    font-size: 15px !important;
+  }
+
+  html body h1 {
+    font-size: clamp(31px, 8vw, 40px);
+  }
+
+  html body h2 {
+    font-size: clamp(25px, 7vw, 30px);
+  }
+
+  html body h3 {
+    font-size: 19px;
+  }
+}
