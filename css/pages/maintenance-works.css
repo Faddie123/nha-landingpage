@@ -1,0 +1,54 @@
+.maintenance-hero { padding: 46px 0; color: #fff; background: linear-gradient(115deg, #0b1d3f, #1d4d85); }
+.maintenance-hero .bar { margin-bottom: 12px; }
+.maintenance-hero .detail-eyebrow { color: var(--yellow); }
+.maintenance-hero h1 { margin-bottom: 10px; font-size: clamp(30px, 4vw, 42px); }
+.maintenance-hero .detail-lead { max-width: 760px; }
+.maintenance-content { min-height: 480px; padding: 46px 0 70px; background: #f4f7fc; }
+.maintenance-layout { display: grid; grid-template-columns: minmax(280px, 320px) minmax(0, 1fr); align-items: start; gap: 24px; }
+.maintenance-nav { position: sticky; top: 24px; overflow: hidden; border: 1px solid #e0e7f1; border-radius: 14px; background: #fff; box-shadow: 0 8px 24px rgba(16, 38, 79, .05); }
+.maintenance-nav-label { padding: 19px 19px 13px; color: #7a879b; font-size: 14px; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; }
+.maintenance-nav-button { display: flex; width: 100%; align-items: center; gap: 13px; min-height: 62px; padding: 15px 19px; border: 0; border-bottom: 1px solid #edf1f7; background: #fff; color: var(--navy-dark); font: inherit; font-size: 14px; font-weight: 500; text-align: left; cursor: pointer; transition: background .2s ease, color .2s ease; }
+.maintenance-nav-button:last-child { border-bottom: 0; }
+.maintenance-nav-button i { width: 19px; color: #74839b; font-size: 14px; text-align: center; }
+.maintenance-nav-button > span { flex: 1; }
+.maintenance-nav-button .nav-chevron { width: 12px; color: #8491a5; font-size: 10px; transition: transform .2s ease; }
+.maintenance-nav-button[aria-expanded="true"] .nav-chevron { transform: rotate(180deg); }
+.maintenance-nav-button:hover,
+.maintenance-nav-button:focus-visible { background: #f5f8fe; color: var(--blue); }
+.maintenance-nav-button.is-active { background: #fff8e8; box-shadow: inset 4px 0 var(--yellow); color: var(--navy-dark); font-weight: 600; }
+.maintenance-nav-button.is-active i { color: var(--blue); }
+.maintenance-nav-button.is-current-group:not(.is-active) { background: #f5f8fe; color: var(--blue); }
+.maintenance-subnav { padding: 5px 0 7px 14px; border-bottom: 1px solid #edf1f7; background: #f8faff; }
+.maintenance-subnav[hidden] { display: none; }
+.maintenance-subnav .maintenance-nav-button { min-height: 52px; padding: 12px 14px; border: 0; border-left: 1px solid #dfe7f2; background: transparent; font-size: 13px; }
+.maintenance-subnav .maintenance-nav-button:hover,
+.maintenance-subnav .maintenance-nav-button:focus-visible { background: #edf3fc; }
+.maintenance-subnav .maintenance-nav-button.is-active { background: #fff; box-shadow: inset 3px 0 var(--yellow); }
+.maintenance-panels { min-width: 0; }
+.maintenance-panel { position: relative; min-height: 250px; padding: 34px; border: 1px solid #e2e9f3; border-radius: 16px; background: #fff; box-shadow: 0 8px 24px rgba(16, 38, 79, .05); }
+.maintenance-panel[hidden] { display: none; }
+.maintenance-panel-icon { display: grid; width: 48px; height: 48px; margin-bottom: 20px; place-items: center; border-radius: 14px; background: #eff5ff; color: var(--blue); font-size: 19px; }
+.maintenance-panel .detail-eyebrow { margin-bottom: 8px; color: var(--blue); font-size: 10px; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; }
+.maintenance-panel h2 { margin-bottom: 12px; color: var(--navy-dark); font-size: clamp(22px, 3vw, 30px); }
+.maintenance-panel > p:not(.detail-eyebrow) { max-width: 680px; color: var(--muted); font-size: 13px; line-height: 1.8; }
+.maintenance-notice { display: flex; align-items: flex-start; gap: 11px; margin-top: 24px; padding: 14px 16px; border: 1px solid #dce7f7; border-radius: 10px; background: #f5f8fd; color: #52617a; font-size: 11px; line-height: 1.7; }
+.maintenance-notice i { margin-top: 3px; color: var(--blue); }
+.maintenance-panel .maintenance-view-button { margin-top: 22px; padding: 13px 24px; border-radius: 10px; background: #2164ce; color: #fff; font-size: 13px; }
+.maintenance-panel .maintenance-view-button:hover,
+.maintenance-panel .maintenance-view-button:focus-visible { background: #174fae; }
+
+@media (max-width: 760px) {
+  .maintenance-content { padding: 30px 0 46px; }
+  .maintenance-layout { grid-template-columns: 1fr; gap: 16px; }
+  .maintenance-nav { position: static; display: block; }
+  .maintenance-nav-button { min-height: 56px; padding: 12px 14px; border-right: 1px solid #edf1f7; font-size: 13px; }
+  .maintenance-nav-button.is-active { box-shadow: inset 4px 0 var(--yellow); }
+  .maintenance-subnav { padding-left: 10px; }
+  .maintenance-subnav .maintenance-nav-button { border-right: 0; }
+  .maintenance-panel .maintenance-view-button { padding: 12px 20px; }
+  .maintenance-panel { min-height: 0; padding: 24px 20px; }
+}
+
+@media (max-width: 420px) {
+  .maintenance-nav-button { border-right: 0; }
+}

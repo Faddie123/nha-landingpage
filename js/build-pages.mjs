@@ -1,13 +1,18 @@
-import { cpSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
+import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const outputDirectory = resolve(process.argv[2] ?? join(projectRoot, '.pages-build'));
+const hasCustomOutput = process.argv[2] !== undefined;
+const outputDirectory = resolve(process.argv[2] ?? join(tmpdir(), 'nha-landingpage-preview'));
 
+if (!hasCustomOutput) {
+  rmSync(outputDirectory, { recursive: true, force: true });
+}
 mkdirSync(outputDirectory, { recursive: true });
 
-for (const directory of ['css', 'images']) {
+for (const directory of ['css', 'assets', 'tender_types']) {
   cpSync(join(projectRoot, directory), join(outputDirectory, directory), { recursive: true });
 }
 
@@ -21,14 +26,15 @@ for (const filename of readdirSync(scriptsDirectory)) {
   }
 }
 
-for (const filename of readdirSync(join(projectRoot, 'html'))) {
+cpSync(join(projectRoot, 'index.html'), join(outputDirectory, 'index.html'));
+
+const sourcePagesDirectory = join(projectRoot, 'pages');
+const outputPagesDirectory = join(outputDirectory, 'pages');
+mkdirSync(outputPagesDirectory, { recursive: true });
+
+for (const filename of readdirSync(sourcePagesDirectory)) {
   if (!filename.endsWith('.html')) continue;
 
-  const source = readFileSync(join(projectRoot, 'html', filename), 'utf8');
-  const page = source
-    .replaceAll('../css/', 'css/')
-    .replaceAll('../js/', 'js/')
-    .replaceAll('../images/', 'images/');
-
-  writeFileSync(join(outputDirectory, filename), page);
+  const source = readFileSync(join(sourcePagesDirectory, filename), 'utf8');
+  writeFileSync(join(outputPagesDirectory, filename), source);
 }

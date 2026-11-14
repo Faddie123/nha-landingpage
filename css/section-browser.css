@@ -1,0 +1,215 @@
+.travel-layout,
+.maintenance-layout,
+.complaints-layout,
+.about-knowledge-grid {
+  grid-template-columns: minmax(230px, .34fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid #dce4f0;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 26px rgba(16, 38, 79, .07);
+}
+
+.travel-nav,
+.maintenance-nav,
+.complaints-nav,
+.about-knowledge-nav {
+  position: static;
+  max-height: min(760px, 72vh);
+  overflow-y: auto;
+  border: 0;
+  border-right: 1px solid #dce4f0;
+  border-radius: 0;
+  background: #fff;
+  box-shadow: none;
+}
+
+.travel-nav-label,
+.maintenance-nav-label,
+.complaints-nav-label {
+  display: none;
+}
+
+.travel-nav-button,
+.maintenance-nav-button,
+.complaints-nav-button,
+.about-knowledge-link {
+  display: flex;
+  width: 100%;
+  min-height: 54px;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 12px 18px;
+  border-right: 0;
+  border-bottom: 1px solid #e6ebf2;
+  background: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color .18s ease, color .18s ease;
+}
+
+.travel-nav-button:not(.has-subnav)::after,
+.maintenance-nav-button:not(.has-subnav)::after,
+.complaints-nav-button:not(.has-subnav)::after,
+.about-knowledge-link::after {
+  margin-left: auto;
+  color: #93a0b3;
+  content: "\f105";
+  font-family: "Font Awesome 6 Free";
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.travel-nav-button:hover,
+.travel-nav-button:focus-visible,
+.maintenance-nav-button:hover,
+.maintenance-nav-button:focus-visible,
+.complaints-nav-button:hover,
+.complaints-nav-button:focus-visible,
+.about-knowledge-link:hover,
+.about-knowledge-link:focus-visible {
+  background: #fff6df;
+  color: var(--navy-dark);
+}
+
+.travel-nav-button.is-active,
+.maintenance-nav-button.is-active,
+.complaints-nav-button.is-active,
+.travel-subnav .travel-nav-button.is-active,
+.maintenance-subnav .maintenance-nav-button.is-active,
+.complaints-subnav .complaints-nav-button.is-active,
+.about-knowledge-link.is-active {
+  border-radius: 0;
+  background: #f7bd4f;
+  box-shadow: none;
+  color: #152b4e;
+  font-weight: 700;
+}
+
+.travel-nav-button.is-active i,
+.maintenance-nav-button.is-active i,
+.complaints-nav-button.is-active i,
+.travel-nav-button.is-active::after,
+.maintenance-nav-button.is-active::after,
+.complaints-nav-button.is-active::after,
+.about-knowledge-link.is-active::after {
+  color: #152b4e;
+}
+
+.travel-nav-button.is-current-group:not(.is-active),
+.maintenance-nav-button.is-current-group:not(.is-active) {
+  background: #fff8e8;
+}
+
+.travel-subnav,
+.maintenance-subnav,
+.complaints-subnav {
+  padding: 0;
+  border-bottom: 1px solid #e6ebf2;
+  background: #f8faff;
+}
+
+.travel-subnav .travel-nav-button,
+.maintenance-subnav .maintenance-nav-button,
+.complaints-subnav .complaints-nav-button {
+  min-height: 48px;
+  padding-left: 34px;
+  border: 0;
+  border-bottom: 1px solid #e6ebf2;
+  border-radius: 0;
+  background: transparent;
+  font-size: 13px;
+}
+
+.travel-subnav .travel-nav-button:hover,
+.travel-subnav .travel-nav-button:focus-visible,
+.maintenance-subnav .maintenance-nav-button:hover,
+.maintenance-subnav .maintenance-nav-button:focus-visible,
+.complaints-subnav .complaints-nav-button:hover,
+.complaints-subnav .complaints-nav-button:focus-visible {
+  background: #fff6df;
+}
+
+.travel-panels,
+.maintenance-panels,
+.complaints-content-main,
+.about-knowledge-content {
+  min-width: 0;
+  padding: 28px;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  box-shadow: none;
+}
+
+.travel-panel,
+.maintenance-panel,
+.complaints-panel {
+  min-height: 100%;
+  padding: 28px;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  box-shadow: none;
+}
+
+.travel-panel[hidden],
+.maintenance-panel[hidden],
+.complaints-panel[hidden] {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .travel-layout,
+  .maintenance-layout,
+  .complaints-layout,
+  .about-knowledge-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .travel-nav,
+  .maintenance-nav,
+  .complaints-nav,
+  .about-knowledge-nav {
+    display: block;
+    max-height: 340px;
+    border-right: 0;
+    border-bottom: 1px solid #dce4f0;
+  }
+
+  .travel-nav-button,
+  .maintenance-nav-button,
+  .complaints-nav-button,
+  .about-knowledge-link {
+    min-height: 50px;
+    padding: 10px 14px;
+    border-right: 0;
+    font-size: 13px;
+  }
+
+  .travel-nav-button.is-active,
+  .maintenance-nav-button.is-active,
+  .complaints-nav-button.is-active,
+  .about-knowledge-link.is-active {
+    box-shadow: none;
+  }
+
+  .travel-subnav .travel-nav-button,
+  .maintenance-subnav .maintenance-nav-button,
+  .complaints-subnav .complaints-nav-button {
+    padding-left: 30px;
+  }
+
+  .travel-panel,
+  .maintenance-panel,
+  .complaints-panel,
+  .about-knowledge-content {
+    min-height: 0;
+    padding: 22px 18px;
+  }
+}

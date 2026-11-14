@@ -1,0 +1,29 @@
+.tender-categories { padding: 40px 0 56px; background: #f4f7fc; }
+.tender-types-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 20px; }
+.tender-types-heading .detail-eyebrow { margin-bottom: 5px; color: var(--blue); font-size: 10px; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; }
+.tender-types-heading h2 { margin: 0; color: var(--navy-dark); font-size: clamp(24px, 3vw, 32px); }
+.tender-types-heading > p { color: var(--muted); font-size: 13px; }
+.tender-type-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+.tender-type-card { position: relative; display: flex; min-width: 0; min-height: 236px; flex-direction: column; align-items: center; justify-content: center; gap: 13px; padding: 22px 14px 42px; overflow: hidden; border: 1px solid #dfe7f2; border-radius: 16px; background: rgba(255,255,255,.98); box-shadow: 0 7px 22px rgba(16,38,79,.07); color: var(--navy-dark); text-align: center; transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
+.tender-type-card::before { position: absolute; top: 0; right: 18px; left: 18px; height: 3px; border-radius: 0 0 3px 3px; background: var(--yellow); content: ""; }
+.tender-type-card:hover { transform: translateY(-4px); border-color: var(--yellow); box-shadow: 0 14px 30px rgba(16,38,79,.13); }
+.tender-type-card:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+.tender-type-icon { display: grid; width: 72px; height: 72px; flex: none; place-items: center; border-radius: 22px; background: #edf3fa; color: var(--navy); font-size: 27px; }
+.tender-type-card h3 { max-width: 100%; margin: 0; color: var(--navy-dark); font-size: 16px; font-weight: 600; line-height: 1.45; }
+.tender-type-arrow { position: absolute; right: 14px; bottom: 13px; display: grid; width: 38px; height: 38px; place-items: center; border-radius: 50%; background: #edf3fa; color: var(--navy); font-size: 13px; }
+
+@media (max-width: 900px) {
+  .tender-type-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .tender-type-card { min-height: 210px; }
+}
+
+@media (max-width: 600px) {
+  .tender-categories { padding: 30px 0 42px; }
+  .tender-types-heading { align-items: flex-start; flex-direction: column; gap: 7px; }
+  .tender-type-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tender-type-grid { gap: 10px; }
+  .tender-type-card { min-height: 168px; gap: 10px; padding: 18px 10px 38px; border-radius: 12px; }
+  .tender-type-icon { width: 52px; height: 52px; border-radius: 17px; font-size: 22px; }
+  .tender-type-card h3 { font-size: 12px; }
+  .tender-type-arrow { right: 10px; bottom: 9px; width: 28px; height: 28px; font-size: 11px; }
+}
