@@ -1,7 +1,38 @@
-const searchDialog = document.querySelector('#site-search-dialog');
+(() => {
+  const scriptUrl = document.currentScript?.src;
+  if (!scriptUrl) {
+    throw new Error('Could not determine the site root for site search.');
+  }
 
-if (searchDialog) {
-  const searchButton = document.querySelector('.search-btn');
+  const siteRoot = new URL('../', scriptUrl);
+  let searchDialog = document.querySelector('#site-search-dialog');
+
+  if (!searchDialog) {
+    searchDialog = document.createElement('dialog');
+    searchDialog.className = 'site-search';
+    searchDialog.id = 'site-search-dialog';
+    searchDialog.setAttribute('aria-labelledby', 'site-search-title');
+    searchDialog.innerHTML = `
+      <div class="site-search-panel">
+        <div class="site-search-heading">
+          <div>
+            <span class="site-search-kicker">National Highway Authority</span>
+            <h2 id="site-search-title">Search the website</h2>
+          </div>
+          <button class="site-search-close" type="button" aria-label="Close search"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        </div>
+        <form class="site-search-form" role="search">
+          <label class="sr-only" for="site-search-input">Search NHA pages</label>
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input id="site-search-input" type="search" placeholder="Search projects, tenders, services..." autocomplete="off">
+          <button type="submit">Search</button>
+        </form>
+        <p class="site-search-status" data-site-search-status aria-live="polite">Enter a keyword to search NHA pages.</p>
+        <ul class="site-search-results" data-site-search-results></ul>
+      </div>`;
+    document.body.append(searchDialog);
+  }
+
   const closeButton = searchDialog.querySelector('.site-search-close');
   const searchForm = searchDialog.querySelector('.site-search-form');
   const searchInput = searchDialog.querySelector('#site-search-input');
@@ -22,8 +53,7 @@ if (searchDialog) {
     { path: 'pages/maintenance-works.html', title: 'Maintenance Works' },
     { path: 'pages/ebidding.html', title: 'E-Bidding' },
     { path: 'pages/downloads.html', title: 'Downloads' },
-    { path: 'pages/active-tenders.html', title: 'Active Tenders' },
-    { path: 'tender_types/', title: 'Active Tender Categories' },
+    { path: 'pages/tender-types.html', title: 'Active Tenders' },
   ];
   let searchIndex;
   let indexPromise;
@@ -32,8 +62,9 @@ if (searchDialog) {
 
   const loadSearchIndex = async () => {
     const entries = await Promise.all(pages.map(async (page) => {
-      const response = await fetch(page.path);
-      if (!response.ok) throw new Error(`Could not load ${page.path} for site search (${response.status}).`);
+      const url = new URL(page.path, siteRoot);
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`Could not load ${url.pathname} for site search (${response.status}).`);
 
       const html = await response.text();
       const parsed = new DOMParser().parseFromString(html, 'text/html');
@@ -41,7 +72,7 @@ if (searchDialog) {
       const title = page.title === 'Home' ? page.title : parsed.querySelector('h1')?.textContent.trim() || parsed.title || page.title;
       const content = parsed.body.textContent.replace(/\s+/g, ' ').trim();
 
-      return { ...page, title, content, normalizedContent: normalize(content), normalized: normalize(`${title} ${content}`) };
+      return { ...page, url, title, content, normalizedContent: normalize(content), normalized: normalize(`${title} ${content}`) };
     }));
 
     return entries;
@@ -90,7 +121,7 @@ if (searchDialog) {
       const snippetStart = Math.max(0, firstTermIndex - 60);
       const excerpt = page.content.slice(snippetStart, snippetStart + 180).trim();
 
-      link.href = page.path;
+      link.href = page.url.href;
       heading.textContent = page.title;
       snippet.textContent = `${snippetStart > 0 ? '…' : ''}${excerpt}${snippetStart + 180 < page.content.length ? '…' : ''}`;
       link.append(heading, snippet);
@@ -99,32 +130,52 @@ if (searchDialog) {
     });
   };
 
-  searchButton?.addEventListener('click', () => {
-    searchDialog.showModal();
-    searchInput.focus();
-    if (!searchIndex && !indexPromise) {
-      status.textContent = 'Loading pages...';
-      indexPromise = loadSearchIndex();
-      indexPromise.then((index) => {
-        searchIndex = index;
-        indexPromise = undefined;
-        renderResults(searchInput.value);
-      }).catch((error) => {
-        indexPromise = undefined;
-        status.textContent = 'Search could not load site pages. Please try again.';
-        console.error(error);
+  class SiteSearchButton extends HTMLElement {
+    connectedCallback() {
+      const searchButton = document.createElement('button');
+      searchButton.className = 'search-btn';
+      searchButton.type = 'button';
+      searchButton.setAttribute('aria-label', 'Search the website');
+      searchButton.setAttribute('aria-haspopup', 'dialog');
+      searchButton.setAttribute('aria-controls', searchDialog.id);
+
+      const icon = document.createElement('i');
+      icon.className = 'fa-solid fa-magnifying-glass';
+      icon.setAttribute('aria-hidden', 'true');
+      searchButton.append(icon);
+      this.append(searchButton);
+
+      searchButton.addEventListener('click', () => {
+        searchDialog.showModal();
+        searchInput.focus();
+        if (!searchIndex && !indexPromise) {
+          status.textContent = 'Loading pages...';
+          indexPromise = loadSearchIndex();
+          indexPromise.then((index) => {
+            searchIndex = index;
+            indexPromise = undefined;
+            renderResults(searchInput.value);
+          }).catch((error) => {
+            indexPromise = undefined;
+            status.textContent = 'Search could not load site pages. Please try again.';
+            console.error(error);
+          });
+        }
       });
+
+      searchDialog.addEventListener('close', () => searchButton.focus());
     }
-  });
+  }
+
+  customElements.define('site-search-button', SiteSearchButton);
 
   closeButton.addEventListener('click', () => searchDialog.close());
   searchDialog.addEventListener('click', (event) => {
     if (event.target === searchDialog) searchDialog.close();
   });
-  searchDialog.addEventListener('close', () => searchButton?.focus());
   searchInput.addEventListener('input', () => renderResults(searchInput.value));
   searchForm.addEventListener('submit', (event) => {
     event.preventDefault();
     resultsList.querySelector('a')?.click();
   });
-}
+})();

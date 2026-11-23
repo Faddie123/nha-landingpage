@@ -8,12 +8,12 @@
 - `assets/documents/` contains site documents.
 - `pages/downloads.html` organizes official NHA downloads by category and links to the NHA document listings.
 - `pages/right-to-information.html` provides access to the NHA Right to Information documents in `assets/documents/`.
-- `tender_types/index.html` is the Active Tenders category page, published at `/tender_types/`.
+- `pages/tender-types.html` is the Active Tenders category page, published at `/pages/tender-types.html`.
 - `css/style.css` contains shared site and responsive styles; `css/animations.css` contains shared motion and interaction styles.
 - `css/section-browser.css` unifies the section-navigation layout used on Complaints, Travel Advisory, and Maintenance Works.
 - `css/pages/` contains page-specific styles.
 - `js/` contains site behavior and the static-site build script.
-- `js/site-search.js` provides homepage search across the site's pages.
+- `js/site-search.js` provides the reusable `<site-search-button>` component and cross-page search on every page.
 - `js/downloads.js` provides keyboard-accessible category switching on the Downloads page.
 - `js/testimonial-slider.js` controls the manual testimonial slider on the homepage.
 

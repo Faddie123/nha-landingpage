@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NHA Projects Dashboard | Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="app-shell" id="appShell">
+    <aside class="sidebar" id="sidebar">
+      <button class="icon-btn sidebar-close" id="sidebarCloseButton" type="button" aria-label="Close admin menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      <div class="brand">
+        <img src="../../../assets/images/shared/branding/nha-logo-footer.png" alt="">
+        <div class="brand-copy">
+          <strong>NHA Projects</strong>
+          <span>Administration portal</span>
+        </div>
+      </div>
+      <p class="nav-label">Workspace</p>
+      <nav class="side-nav" aria-label="Admin navigation">
+        <button class="nav-link active" type="button" data-page="overview"><i class="fa-solid fa-chart-pie" aria-hidden="true"></i>Overview</button>
+        <button class="nav-link" type="button" data-page="projects"><i class="fa-solid fa-road" aria-hidden="true"></i>Projects</button>
+        <button class="nav-link" type="button" data-page="updates"><i class="fa-regular fa-clock" aria-hidden="true"></i>Update history</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <strong><i class="fa-regular fa-circle-question" aria-hidden="true"></i> Prototype help</strong>
+          <p>Use Import/Export JSON to move demo data between browser sessions. Nothing is published to the public site.</p>
+        </div>
+        <div class="admin-mini">
+          <span class="avatar" aria-hidden="true">AD</span>
+          <div><strong>Demo Administrator</strong><span>Prototype account</span></div>
+          <button class="icon-btn admin-logout" id="sidebarSignoutButton" type="button" aria-label="Log out" title="Log out"><i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="main-panel">
+      <header class="admin-topbar">
+        <div class="topbar-actions">
+          <button class="icon-btn mobile-menu" id="mobileMenuButton" type="button" aria-label="Open admin menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+          <span class="topbar-title" id="topbarTitle">Overview</span>
+        </div>
+        <div class="topbar-actions">
+          <a class="secondary-btn" href="../../projects.html" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>View public directory</a>
+          <button class="icon-btn" id="signoutButton" type="button" aria-label="Sign out"><i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i></button>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="page-view" data-page-view="overview" aria-labelledby="overview-title">
+          <div class="page-heading">
+            <div>
+              <h1 id="overview-title">Project overview</h1>
+              <p>Monitor project statuses and keep progress information up to date.</p>
+            </div>
+            <button class="primary-btn" type="button" data-add-project><i class="fa-solid fa-plus" aria-hidden="true"></i>Add project</button>
+          </div>
+          <div class="sample-warning"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span><strong>Prototype notice:</strong> all project entries are sample data. Changes save only in this browser; export the JSON file to transfer them. This portal is not connected to the public projects page.</span></div>
+          <div class="stats-grid" aria-label="Project statistics">
+            <article class="stat-card"><div class="stat-top"><span>Total projects</span><span class="stat-icon"><i class="fa-solid fa-road" aria-hidden="true"></i></span></div><strong data-stat="total">0</strong><small>Projects in this demo portal</small></article>
+            <article class="stat-card"><div class="stat-top"><span>In progress</span><span class="stat-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span></div><strong data-stat="in-progress">0</strong><small>Sample active projects</small></article>
+            <article class="stat-card"><div class="stat-top"><span>Planning</span><span class="stat-icon"><i class="fa-regular fa-calendar" aria-hidden="true"></i></span></div><strong data-stat="planning">0</strong><small>Sample planned projects</small></article>
+            <article class="stat-card"><div class="stat-top"><span>Completed</span><span class="stat-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></span></div><strong data-stat="completed">0</strong><small>Sample completed projects</small></article>
+          </div>
+          <section class="panel" aria-labelledby="recent-title">
+            <div class="panel-heading">
+              <div><h2 id="recent-title">Recently updated</h2><p>Latest sample project updates</p></div>
+              <button class="text-btn" type="button" data-go-page="projects">View all <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Project</th><th>Region</th><th>Status</th><th>Progress</th><th>Updated</th></tr></thead>
+                <tbody id="recentProjectsBody"></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+
+        <section class="page-view" data-page-view="projects" aria-labelledby="projects-title" hidden>
+          <div class="page-heading">
+            <div>
+              <h1 id="projects-title">Projects</h1>
+              <p>Add projects, edit progress, or prepare a JSON export.</p>
+            </div>
+            <button class="primary-btn" type="button" data-add-project><i class="fa-solid fa-plus" aria-hidden="true"></i>Add project</button>
+          </div>
+          <section class="panel">
+            <div class="panel-heading">
+              <div><h2>Project directory</h2><p id="projectCount">Showing 0 projects</p></div>
+              <div class="toolbar">
+                <input id="projectSearch" type="search" aria-label="Search projects" placeholder="Search projects...">
+                <select id="statusFilter" aria-label="Filter by status">
+                  <option value="">All statuses</option>
+                  <option value="In Progress">In progress</option>
+                  <option value="Planning">Planning</option>
+                  <option value="Completed">Completed</option>
+                </select>
+                <button class="secondary-btn" id="importButton" type="button"><i class="fa-solid fa-upload" aria-hidden="true"></i>Import</button>
+                <button class="secondary-btn" id="exportButton" type="button"><i class="fa-solid fa-download" aria-hidden="true"></i>Export</button>
+                <input class="file-input" id="importFile" type="file" accept="application/json,.json">
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Project</th><th>Region</th><th>Status</th><th>Progress</th><th>Updated</th><th>Actions</th></tr></thead>
+                <tbody id="projectsBody"></tbody>
+              </table>
+              <div class="empty-state" id="emptyProjects" hidden>No projects match your search.</div>
+            </div>
+          </section>
+        </section>
+
+        <section class="page-view" data-page-view="updates" aria-labelledby="updates-title" hidden>
+          <div class="page-heading">
+            <div>
+              <h1 id="updates-title">Update history</h1>
+              <p>Recent project notes from this browser's demo data.</p>
+            </div>
+            <button class="primary-btn" type="button" data-add-project><i class="fa-solid fa-plus" aria-hidden="true"></i>Add project</button>
+          </div>
+          <section class="panel" aria-label="Project update history">
+            <div class="panel-heading"><div><h2>Recent updates</h2><p>Sample history — not official project reporting</p></div></div>
+            <div class="updates-list" id="updatesList"></div>
+          </section>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <dialog id="projectDialog" aria-labelledby="dialogTitle">
+    <div class="dialog-head">
+      <div><h2 id="dialogTitle">Add project</h2><p>Enter project details for this local prototype.</p></div>
+      <button class="icon-btn" id="closeDialogButton" type="button" aria-label="Close dialog"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    </div>
+    <form class="dialog-body" id="projectForm">
+      <input id="editProjectId" type="hidden">
+      <div class="form-grid">
+        <div class="field field-full">
+          <label for="projectName">Project name</label>
+          <input id="projectName" name="name" maxlength="100" required>
+        </div>
+        <div class="field">
+          <label for="projectCode">Project code</label>
+          <input id="projectCode" name="code" maxlength="20" required>
+        </div>
+        <div class="field">
+          <label for="projectRegion">Region</label>
+          <select id="projectRegion" name="region" required>
+            <option value="">Select region</option>
+            <option>Punjab</option><option>Sindh</option><option>Khyber Pakhtunkhwa</option>
+            <option>Balochistan</option><option>Gilgit-Baltistan</option><option>Azad Jammu &amp; Kashmir</option>
+            <option>Federal</option><option>Multiple regions</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="projectStatus">Status</label>
+          <select id="projectStatus" name="status" required>
+            <option>Planning</option><option>In Progress</option><option>Completed</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="projectProgress">Progress (%)</label>
+          <input id="projectProgress" name="progress" type="number" min="0" max="100" value="0" required>
+        </div>
+        <div class="field">
+          <label for="projectUpdated">Update date</label>
+          <input id="projectUpdated" name="updated" type="date" required>
+        </div>
+        <div class="field field-full">
+          <label for="projectNote">Latest update note</label>
+          <textarea id="projectNote" name="note" maxlength="240" placeholder="Add a brief progress note..." required></textarea>
+        </div>
+      </div>
+      <div class="dialog-actions">
+        <button class="secondary-btn" id="cancelDialogButton" type="button">Cancel</button>
+        <button class="primary-btn" type="submit"><i class="fa-solid fa-check" aria-hidden="true"></i>Save project</button>
+      </div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

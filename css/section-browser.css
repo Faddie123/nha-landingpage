@@ -2,14 +2,14 @@
 .maintenance-layout,
 .complaints-layout,
 .about-knowledge-grid {
-  grid-template-columns: minmax(230px, .34fr) minmax(0, 1fr);
+  grid-template-columns: minmax(230px, 0.34fr) minmax(0, 1fr);
   align-items: stretch;
   gap: 0;
   overflow: hidden;
   border: 1px solid #dce4f0;
   border-radius: 16px;
   background: #fff;
-  box-shadow: 0 8px 26px rgba(16, 38, 79, .07);
+  box-shadow: 0 8px 26px rgba(16, 38, 79, 0.07);
 }
 
 .travel-nav,
@@ -50,7 +50,9 @@
   font-family: inherit;
   text-align: left;
   cursor: pointer;
-  transition: background-color .18s ease, color .18s ease;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease;
 }
 
 .travel-nav-button:not(.has-subnav)::after,

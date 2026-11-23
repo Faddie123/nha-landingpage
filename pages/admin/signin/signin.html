@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NHA Projects Sign In | Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="signin.css">
+</head>
+<body>
+  <main class="signin-card">
+    <div class="brand">
+      <img src="../../../assets/images/shared/branding/nha-logo-footer.png" alt="NHA logo">
+      <div><strong>NHA</strong><span>National Highway Authority</span></div>
+    </div>
+    <div class="heading">
+      <p class="eyebrow">Project administration</p>
+      <h1>Welcome back</h1>
+      <p>Sign in to manage project information and progress updates.</p>
+    </div>
+    <form id="signinForm">
+      <div class="field">
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" autocomplete="username" placeholder="name@nha.gov.pk" required>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter any password for demo" required>
+      </div>
+      <button type="submit">Sign in</button>
+    </form>
+    <p class="demo-hint"><strong>Demo mode:</strong> use any valid email and password to open the dashboard. This page does not authenticate users or connect to a server.</p>
+    <a class="back-link" href="../../../index.html">← Back to NHA website</a>
+  </main>
+  <script src="signin.js"></script>
+</body>
+</html>

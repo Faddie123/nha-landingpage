@@ -12,7 +12,7 @@ if (!hasCustomOutput) {
 }
 mkdirSync(outputDirectory, { recursive: true });
 
-for (const directory of ['css', 'assets', 'tender_types']) {
+for (const directory of ['css', 'assets']) {
   cpSync(join(projectRoot, directory), join(outputDirectory, directory), { recursive: true });
 }
 
