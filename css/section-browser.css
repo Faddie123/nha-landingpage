@@ -179,7 +179,8 @@
   .complaints-nav,
   .about-knowledge-nav {
     display: block;
-    max-height: 340px;
+    max-height: none;
+    overflow: visible;
     border-right: 0;
     border-bottom: 1px solid #dce4f0;
   }
