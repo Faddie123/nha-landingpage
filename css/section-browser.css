@@ -1,7 +1,8 @@
 .travel-layout,
 .maintenance-layout,
 .complaints-layout,
-.about-knowledge-grid {
+.about-knowledge-grid,
+.downloads-browser {
   grid-template-columns: minmax(230px, 0.34fr) minmax(0, 1fr);
   align-items: stretch;
   gap: 0;
@@ -15,7 +16,8 @@
 .travel-nav,
 .maintenance-nav,
 .complaints-nav,
-.about-knowledge-nav {
+.about-knowledge-nav,
+.downloads-category-list {
   position: static;
   max-height: min(760px, 72vh);
   overflow-y: auto;
@@ -35,7 +37,8 @@
 .travel-nav-button,
 .maintenance-nav-button,
 .complaints-nav-button,
-.about-knowledge-link {
+.about-knowledge-link,
+.downloads-category-button {
   display: flex;
   width: 100%;
   min-height: 54px;
@@ -58,7 +61,8 @@
 .travel-nav-button:not(.has-subnav)::after,
 .maintenance-nav-button:not(.has-subnav)::after,
 .complaints-nav-button:not(.has-subnav)::after,
-.about-knowledge-link::after {
+.about-knowledge-link::after,
+.downloads-category-button::after {
   margin-left: auto;
   color: #93a0b3;
   content: "\f105";
@@ -74,7 +78,9 @@
 .complaints-nav-button:hover,
 .complaints-nav-button:focus-visible,
 .about-knowledge-link:hover,
-.about-knowledge-link:focus-visible {
+.about-knowledge-link:focus-visible,
+.downloads-category-button:hover,
+.downloads-category-button:focus-visible {
   background: #fff6df;
   color: var(--navy-dark);
 }
@@ -85,7 +91,8 @@
 .travel-subnav .travel-nav-button.is-active,
 .maintenance-subnav .maintenance-nav-button.is-active,
 .complaints-subnav .complaints-nav-button.is-active,
-.about-knowledge-link.is-active {
+.about-knowledge-link.is-active,
+.downloads-category-button.is-active {
   border-radius: 0;
   background: #f7bd4f;
   box-shadow: none;
@@ -99,7 +106,9 @@
 .travel-nav-button.is-active::after,
 .maintenance-nav-button.is-active::after,
 .complaints-nav-button.is-active::after,
-.about-knowledge-link.is-active::after {
+.about-knowledge-link.is-active::after,
+.downloads-category-button.is-active > i,
+.downloads-category-button.is-active::after {
   color: #152b4e;
 }
 
@@ -140,7 +149,8 @@
 .travel-panels,
 .maintenance-panels,
 .complaints-content-main,
-.about-knowledge-content {
+.about-knowledge-content,
+.downloads-results {
   min-width: 0;
   padding: 28px;
   border: 0;
@@ -151,7 +161,8 @@
 
 .travel-panel,
 .maintenance-panel,
-.complaints-panel {
+.complaints-panel,
+.downloads-panel {
   min-height: 100%;
   padding: 28px;
   border: 0;
@@ -162,7 +173,8 @@
 
 .travel-panel[hidden],
 .maintenance-panel[hidden],
-.complaints-panel[hidden] {
+.complaints-panel[hidden],
+.downloads-panel[hidden] {
   display: none;
 }
 
@@ -170,14 +182,16 @@
   .travel-layout,
   .maintenance-layout,
   .complaints-layout,
-  .about-knowledge-grid {
+  .about-knowledge-grid,
+  .downloads-browser {
     grid-template-columns: minmax(0, 1fr);
   }
 
   .travel-nav,
   .maintenance-nav,
   .complaints-nav,
-  .about-knowledge-nav {
+  .about-knowledge-nav,
+  .downloads-category-list {
     display: block;
     max-height: none;
     overflow: visible;
@@ -188,7 +202,8 @@
   .travel-nav-button,
   .maintenance-nav-button,
   .complaints-nav-button,
-  .about-knowledge-link {
+  .about-knowledge-link,
+  .downloads-category-button {
     min-height: 50px;
     padding: 10px 14px;
     border-right: 0;
@@ -198,7 +213,8 @@
   .travel-nav-button.is-active,
   .maintenance-nav-button.is-active,
   .complaints-nav-button.is-active,
-  .about-knowledge-link.is-active {
+  .about-knowledge-link.is-active,
+  .downloads-category-button.is-active {
     box-shadow: none;
   }
 
@@ -211,7 +227,8 @@
   .travel-panel,
   .maintenance-panel,
   .complaints-panel,
-  .about-knowledge-content {
+  .about-knowledge-content,
+  .downloads-panel {
     min-height: 0;
     padding: 22px 18px;
   }
