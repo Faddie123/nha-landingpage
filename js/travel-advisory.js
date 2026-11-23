@@ -2,7 +2,6 @@ const travelPanels = [...document.querySelectorAll('.travel-panel[id]')];
 const travelControls = [...document.querySelectorAll('[data-travel-panel]')];
 const travelGroupToggles = [...document.querySelectorAll('[data-travel-toggle]')];
 const detailToggles = [...document.querySelectorAll('[data-detail-toggle]')];
-const travelShortcuts = [...document.querySelectorAll('[data-travel-shortcut]')];
 
 const resetDetails = () => {
   detailToggles.forEach((button) => {
@@ -67,10 +66,6 @@ const showTravelPanel = (control) => {
     button.setAttribute('aria-pressed', String(isSelected));
   });
 
-  travelShortcuts.forEach((shortcut) => {
-    shortcut.classList.toggle('is-active', shortcut.dataset.travelShortcut === control.dataset.travelPanel);
-  });
-
   if (control.dataset.mapTitle) {
     const title = selectedPanel.querySelector('#travel-map-detail-title');
     if (title) {
@@ -119,27 +114,6 @@ const activateTravelControl = (control) => {
 
 travelControls.forEach((control) => {
   control.addEventListener('click', () => activateTravelControl(control));
-});
-
-travelShortcuts.forEach((shortcut) => {
-  shortcut.addEventListener('click', () => {
-    const targetControl = travelControls.find((control) => control.dataset.travelPanel === shortcut.dataset.travelShortcut);
-    if (!targetControl) {
-      console.error(`Travel advisory shortcut target not found: ${shortcut.dataset.travelShortcut}`);
-      return;
-    }
-
-    if (targetControl.matches('[data-travel-toggle]')) {
-      const expandedGroups = getAncestorGroups(targetControl);
-      expandedGroups.push(targetControl);
-      setExpandedGroups(expandedGroups);
-      showTravelPanel(targetControl);
-    } else {
-      activateTravelControl(targetControl);
-    }
-
-    document.getElementById('travel-content')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
 });
 
 detailToggles.forEach((button) => {

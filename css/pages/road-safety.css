@@ -11,13 +11,6 @@
   letter-spacing: 1.1px;
   text-transform: uppercase;
 }
-.safety-eyebrow {
-  display: inline-block;
-  padding: 5px 10px;
-  border-radius: 4px;
-  background: var(--navy);
-  color: #fff;
-}
 .safety-detail-eyebrow {
   display: inline-block;
   color: #142a4f;
@@ -225,7 +218,7 @@
   line-height: 1.75;
 }
 
-@media (max-width: 950px) {
+@media (max-width: 1024px) {
   .safety-topics {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
