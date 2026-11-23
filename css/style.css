@@ -2296,10 +2296,18 @@ site-search-button {
     font-size: 11px;
   }
   .topbar-left {
+    display: flex;
+    gap: 0;
+  }
+  .topbar-left span {
     display: none;
   }
+  .topbar-left .topbar-phone {
+    display: inline;
+    white-space: nowrap;
+  }
   .topbar-inner {
-    justify-content: flex-end;
+    justify-content: space-between;
     height: 34px;
   }
   .topbar-right {
