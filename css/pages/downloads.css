@@ -34,58 +34,90 @@
 }
 .downloads-browser {
   display: grid;
-  grid-template-columns: minmax(230px, 0.34fr) minmax(0, 1fr);
-  overflow: hidden;
-  border: 1px solid #dce4f0;
-  border-radius: 16px;
-  background: #fff;
-  box-shadow: 0 8px 26px rgba(16, 38, 79, 0.07);
+  grid-template-columns: minmax(280px, 320px) minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
 }
 .downloads-category-list {
+  position: sticky;
+  top: 24px;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #dce4f0;
+  overflow: hidden;
+  border: 1px solid #e0e7f1;
+  border-radius: 14px;
   background: #fff;
+  box-shadow: 0 8px 24px rgba(16, 38, 79, 0.05);
+}
+.downloads-category-tabs {
+  display: flex;
+  flex-direction: column;
+}
+.downloads-nav-label {
+  padding: 19px 19px 13px;
+  color: #7a879b;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
 }
 .downloads-category-button {
   display: flex;
-  min-height: 54px;
+  width: 100%;
+  min-height: 58px;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 12px 18px;
+  gap: 13px;
+  padding: 12px 19px;
   border: 0;
-  border-bottom: 1px solid #e6ebf2;
-  background: transparent;
-  color: #25334a;
+  border-bottom: 1px solid #edf1f7;
+  background: #fff;
+  color: var(--navy-dark);
   cursor: pointer;
   font: inherit;
   font-size: 14px;
   font-weight: 500;
-  line-height: 1.5;
   text-align: left;
   transition:
-    background-color 0.18s ease,
+    background 0.2s ease,
     color 0.18s ease;
 }
+.downloads-category-tabs .downloads-category-button:last-child {
+  border-bottom: 0;
+}
+.downloads-category-button > i {
+  width: 19px;
+  flex: none;
+  color: #74839b;
+  font-size: 14px;
+  text-align: center;
+}
+.downloads-category-button > span {
+  flex: 1;
+}
 .downloads-category-button::after {
-  color: #93a0b3;
+  flex: none;
+  color: #8491a5;
   content: "\f105";
   font-family: "Font Awesome 6 Free";
   font-size: 13px;
   font-weight: 900;
 }
-.downloads-category-button:hover {
-  background: #fff6df;
-  color: var(--navy-dark);
+.downloads-category-button:hover,
+.downloads-category-button:focus-visible {
+  background: #f5f8fe;
+  color: var(--blue);
 }
 .downloads-category-button.is-active {
-  background: #f7bd4f;
-  color: #152b4e;
-  font-weight: 700;
+  background: #fff8e8;
+  box-shadow: inset 4px 0 var(--yellow);
+  color: var(--navy-dark);
+  font-weight: 600;
+}
+.downloads-category-button.is-active > i {
+  color: var(--blue);
 }
 .downloads-category-button.is-active::after {
-  color: #152b4e;
+  color: var(--navy-dark);
 }
 .downloads-category-button:focus-visible {
   position: relative;
@@ -94,10 +126,17 @@
 }
 .downloads-results {
   min-width: 0;
-  padding: 26px;
 }
 .downloads-panel[hidden] {
   display: none;
+}
+.downloads-panel {
+  min-height: 280px;
+  padding: 34px;
+  border: 1px solid #e2e9f3;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(16, 38, 79, 0.05);
 }
 .downloads-panel-heading {
   display: flex;
@@ -114,8 +153,8 @@
   flex: none;
   place-items: center;
   border-radius: 14px;
-  background: #edf3fa;
-  color: var(--navy);
+  background: #eff5ff;
+  color: var(--blue);
   font-size: 20px;
 }
 .downloads-panel-heading h3 {
@@ -209,10 +248,8 @@
 
 @media (max-width: 850px) {
   .downloads-browser {
-    grid-template-columns: minmax(190px, 0.38fr) minmax(0, 1fr);
-  }
-  .downloads-results {
-    padding: 20px;
+    grid-template-columns: minmax(240px, 280px) minmax(0, 1fr);
+    gap: 18px;
   }
   .downloads-item-list,
   .downloads-report-groups {
@@ -220,9 +257,9 @@
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 760px) {
   .downloads-content {
-    padding: 34px 0 44px;
+    padding: 30px 0 46px;
   }
   .downloads-heading {
     align-items: flex-start;
@@ -231,21 +268,19 @@
   }
   .downloads-browser {
     grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
   }
   .downloads-category-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    border-right: 0;
-    border-bottom: 1px solid #dce4f0;
+    position: static;
   }
   .downloads-category-button {
-    min-height: 52px;
-    padding: 10px 12px;
-    border-right: 1px solid #e6ebf2;
-    font-size: 12px;
+    min-height: 54px;
+    padding: 12px 15px;
+    font-size: 13px;
   }
-  .downloads-results {
-    padding: 18px 14px;
+  .downloads-panel {
+    min-height: 0;
+    padding: 24px 20px;
   }
   .downloads-panel-heading h3 {
     font-size: 18px;
