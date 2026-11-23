@@ -1,4 +1,4 @@
-import { cpSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdirSync, readdirSync, rmSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
@@ -30,11 +30,4 @@ cpSync(join(projectRoot, 'index.html'), join(outputDirectory, 'index.html'));
 
 const sourcePagesDirectory = join(projectRoot, 'pages');
 const outputPagesDirectory = join(outputDirectory, 'pages');
-mkdirSync(outputPagesDirectory, { recursive: true });
-
-for (const filename of readdirSync(sourcePagesDirectory)) {
-  if (!filename.endsWith('.html')) continue;
-
-  const source = readFileSync(join(sourcePagesDirectory, filename), 'utf8');
-  writeFileSync(join(outputPagesDirectory, filename), source);
-}
+cpSync(sourcePagesDirectory, outputPagesDirectory, { recursive: true });
