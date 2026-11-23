@@ -30,17 +30,69 @@
     <section class="detail-hero"><div class="container"><span class="bar"></span><p class="detail-eyebrow">National Highway Authority</p><h1>Road Safety</h1><p class="detail-lead">Simple road-safety reminders for safer journeys on Pakistan's highways and motorways.</p></div></section>
     <section class="detail-content" id="safety-guidance"><div class="container">
       <div class="detail-notice"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><div>General travel guidance is provided below. For emergencies or live road conditions, follow official instructions and contact the relevant authorities.</div></div>
-      <figure class="safety-poster">
-        <img src="../assets/images/road-safety/road-safety-reminders.png" alt="Road safety reminders: fasten your seat belt, do not use a mobile phone while driving, avoid speeding and tailgating, and give pedestrians the right to walk.">
-        <figcaption>Follow these road safety reminders for safer journeys.</figcaption>
-      </figure>
-      <div class="detail-grid safety-grid">
-        <article class="detail-card"><h3><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Keep a safe speed</h3><p>Observe posted speed limits and adjust your speed for traffic, visibility, and road conditions.</p></article>
-        <article class="detail-card"><h3><i class="fa-solid fa-people-arrows-left-right" aria-hidden="true"></i> Keep a safe distance</h3><p>Leave enough space between vehicles and avoid sudden lane changes or unsafe overtaking.</p></article>
-        <article class="detail-card"><h3><i class="fa-solid fa-user-shield" aria-hidden="true"></i> Use seat belts</h3><p>Wear a seat belt on every trip and make sure passengers are secured before moving.</p></article>
-        <article class="detail-card"><h3><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i> Avoid distractions</h3><p>Do not use a handheld phone while driving. Pull over safely before making a call or checking a device.</p></article>
-        <article class="detail-card"><h3><i class="fa-solid fa-moon" aria-hidden="true"></i> Rest before driving</h3><p>Do not drive when tired. Take breaks on long journeys and stop in a safe place if you feel drowsy.</p></article>
-        <article class="detail-card"><h3><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Check your vehicle</h3><p>Before departure, check tyres, brakes, lights and fuel, and carry required safety equipment.</p></article>
+      <div class="safety-heading">
+        <p class="safety-eyebrow">A safer journey starts with you</p>
+        <h2>Five reminders for every road</h2>
+        <p>Select a reminder to see how a small action can help protect everyone on the road.</p>
+      </div>
+      <div class="safety-topics" aria-label="Road safety reminders">
+        <button class="safety-topic" type="button" aria-expanded="false" aria-controls="safety-detail-seatbelt" data-safety-topic="seatbelt">
+          <span class="safety-topic-index" aria-hidden="true">01</span>
+          <span class="safety-topic-visual"><span class="safety-sign safety-sign-blue"><img class="seatbelt-sign-image" src="../assets/images/road-safety/seatbelt-sign.png" alt=""></span></span>
+          <span class="safety-topic-title">Fasten your seat belt</span>
+          <span class="safety-topic-caption">Buckle up before every journey.</span>
+          <span class="safety-topic-action"><span data-safety-action>View tip</span><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></span>
+        </button>
+        <button class="safety-topic" type="button" aria-expanded="false" aria-controls="safety-detail-phone" data-safety-topic="phone">
+          <span class="safety-topic-index" aria-hidden="true">02</span>
+          <span class="safety-topic-visual"><span class="safety-sign safety-sign-prohibited"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></span></span>
+          <span class="safety-topic-title">No mobile while driving</span>
+          <span class="safety-topic-caption">Put the phone away and focus.</span>
+          <span class="safety-topic-action"><span data-safety-action>View tip</span><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></span>
+        </button>
+        <button class="safety-topic" type="button" aria-expanded="false" aria-controls="safety-detail-speed" data-safety-topic="speed">
+          <span class="safety-topic-index" aria-hidden="true">03</span>
+          <span class="safety-topic-visual"><span class="safety-sign safety-sign-prohibited"><svg class="safety-speed-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="m12 46 1-7 4-7 5-6 7-3 7 0 7 3 5 6 4 7 1 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"></path><path d="m17 37 5 2m1-12 4 5m5-9v7m10-3-4 5m10 5-5 2M32 43l13-14" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="4"></path><circle cx="32" cy="43" r="4" fill="currentColor"></circle></svg></span></span>
+          <span class="safety-topic-title">Speed thrills, but kills</span>
+          <span class="safety-topic-caption">Keep to the posted speed limit.</span>
+          <span class="safety-topic-action"><span data-safety-action>View tip</span><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></span>
+        </button>
+        <button class="safety-topic" type="button" aria-expanded="false" aria-controls="safety-detail-pedestrians" data-safety-topic="pedestrians">
+          <span class="safety-topic-index" aria-hidden="true">04</span>
+          <span class="safety-topic-visual"><span class="safety-sign safety-sign-prohibited"><i class="fa-solid fa-person-walking" aria-hidden="true"></i></span></span>
+          <span class="safety-topic-title">Give pedestrians the right to walk</span>
+          <span class="safety-topic-caption">Slow down and respect crossings.</span>
+          <span class="safety-topic-action"><span data-safety-action>View tip</span><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></span>
+        </button>
+        <button class="safety-topic" type="button" aria-expanded="false" aria-controls="safety-detail-distance" data-safety-topic="distance">
+          <span class="safety-topic-index" aria-hidden="true">05</span>
+          <span class="safety-topic-visual"><span class="safety-sign safety-sign-prohibited"><i class="fa-solid fa-car-side" aria-hidden="true"></i></span></span>
+          <span class="safety-topic-title">Don't tailgate</span>
+          <span class="safety-topic-caption">Leave a safe space ahead.</span>
+          <span class="safety-topic-action"><span data-safety-action>View tip</span><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></span>
+        </button>
+      </div>
+      <div class="safety-details" aria-live="polite">
+        <article class="safety-detail" id="safety-detail-seatbelt" data-safety-detail="seatbelt" hidden>
+          <span class="safety-detail-icon"><img class="seatbelt-sign-image" src="../assets/images/road-safety/seatbelt-sign.png" alt=""></span>
+          <div><p class="safety-detail-eyebrow">Protect every passenger</p><h3>Fasten your seat belt</h3><p>Wear your seat belt on every trip, even for short journeys. Make sure passengers are buckled up and children are seated safely before you set off.</p></div>
+        </article>
+        <article class="safety-detail" id="safety-detail-phone" data-safety-detail="phone" hidden>
+          <span class="safety-detail-icon"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></span>
+          <div><p class="safety-detail-eyebrow">Keep your attention on the road</p><h3>No mobile while driving</h3><p>Calls, messages, and screen checks take your attention away from traffic. Set your route before you leave, and pull over somewhere safe before using your phone.</p></div>
+        </article>
+        <article class="safety-detail" id="safety-detail-speed" data-safety-detail="speed" hidden>
+          <span class="safety-detail-icon"><svg class="safety-speed-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="m12 46 1-7 4-7 5-6 7-3 7 0 7 3 5 6 4 7 1 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"></path><path d="m17 37 5 2m1-12 4 5m5-9v7m10-3-4 5m10 5-5 2M32 43l13-14" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="4"></path><circle cx="32" cy="43" r="4" fill="currentColor"></circle></svg></span>
+          <div><p class="safety-detail-eyebrow">Arrive safely</p><h3>Speed thrills, but kills</h3><p>Follow posted speed limits and slow down when visibility, weather, traffic, or the road surface makes driving more difficult. Leave yourself time to react.</p></div>
+        </article>
+        <article class="safety-detail" id="safety-detail-pedestrians" data-safety-detail="pedestrians" hidden>
+          <span class="safety-detail-icon"><i class="fa-solid fa-person-walking" aria-hidden="true"></i></span>
+          <div><p class="safety-detail-eyebrow">Share the road</p><h3>Give pedestrians the right to walk</h3><p>Watch for people crossing, especially near junctions and pedestrian crossings. Slow down, give them room, and stop when it is safe for them to cross.</p></div>
+        </article>
+        <article class="safety-detail" id="safety-detail-distance" data-safety-detail="distance" hidden>
+          <span class="safety-detail-icon"><i class="fa-solid fa-car-side" aria-hidden="true"></i></span>
+          <div><p class="safety-detail-eyebrow">Leave room to react</p><h3>Don't tailgate</h3><p>Keep a safe following distance so you have time to respond if the vehicle ahead slows suddenly. Increase the gap in poor weather or when visibility is reduced.</p></div>
+        </article>
       </div>
     </div></section>
   </main>
@@ -52,6 +104,7 @@
     <div class="follow"><h5>Follow Us</h5><div class="social"><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></div></div>
   </div><div class="footer-bottom"><div class="container fb-inner"><span>Â© 2026 National Highway Authority. All Rights Reserved.</span><span><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Sitemap</a></span></div></div></footer>
   <script src="../js/service-detail.js"></script>
+  <script src="../js/road-safety.js"></script>
   <script src="../js/site-navigation.js"></script>
   <script src="../js/site-search.js"></script>
   <script src="../js/site-motion.js"></script>
