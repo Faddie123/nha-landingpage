@@ -2,6 +2,7 @@ const travelPanels = [...document.querySelectorAll('.travel-panel[id]')];
 const travelControls = [...document.querySelectorAll('[data-travel-panel]')];
 const travelGroupToggles = [...document.querySelectorAll('[data-travel-toggle]')];
 const detailToggles = [...document.querySelectorAll('[data-detail-toggle]')];
+const travelShortcuts = [...document.querySelectorAll('[data-travel-shortcut]')];
 
 const resetDetails = () => {
   detailToggles.forEach((button) => {
@@ -66,6 +67,10 @@ const showTravelPanel = (control) => {
     button.setAttribute('aria-pressed', String(isSelected));
   });
 
+  travelShortcuts.forEach((shortcut) => {
+    shortcut.classList.toggle('is-active', shortcut.dataset.travelShortcut === control.dataset.travelPanel);
+  });
+
   if (control.dataset.mapTitle) {
     const title = selectedPanel.querySelector('#travel-map-detail-title');
     if (title) {
@@ -90,27 +95,50 @@ const showTravelPanel = (control) => {
   return true;
 };
 
-travelControls.forEach((control) => {
-  control.addEventListener('click', () => {
-    if (control.matches('[data-travel-toggle]')) {
-      const currentSubnav = document.getElementById(control.dataset.travelToggle);
-      if (!currentSubnav) {
-        console.error(`Travel advisory navigation group not found: ${control.dataset.travelToggle}`);
-        return;
-      }
-
-      const shouldExpand = currentSubnav.hidden;
-      const expandedGroups = getAncestorGroups(control);
-      if (shouldExpand) {
-        expandedGroups.push(control);
-      }
-      setExpandedGroups(expandedGroups);
-      showTravelPanel(control);
+const activateTravelControl = (control) => {
+  if (control.matches('[data-travel-toggle]')) {
+    const currentSubnav = document.getElementById(control.dataset.travelToggle);
+    if (!currentSubnav) {
+      console.error(`Travel advisory navigation group not found: ${control.dataset.travelToggle}`);
       return;
     }
 
-    setExpandedGroups(getAncestorGroups(control));
+    const shouldExpand = currentSubnav.hidden;
+    const expandedGroups = getAncestorGroups(control);
+    if (shouldExpand) {
+      expandedGroups.push(control);
+    }
+    setExpandedGroups(expandedGroups);
     showTravelPanel(control);
+    return;
+  }
+
+  setExpandedGroups(getAncestorGroups(control));
+  showTravelPanel(control);
+};
+
+travelControls.forEach((control) => {
+  control.addEventListener('click', () => activateTravelControl(control));
+});
+
+travelShortcuts.forEach((shortcut) => {
+  shortcut.addEventListener('click', () => {
+    const targetControl = travelControls.find((control) => control.dataset.travelPanel === shortcut.dataset.travelShortcut);
+    if (!targetControl) {
+      console.error(`Travel advisory shortcut target not found: ${shortcut.dataset.travelShortcut}`);
+      return;
+    }
+
+    if (targetControl.matches('[data-travel-toggle]')) {
+      const expandedGroups = getAncestorGroups(targetControl);
+      expandedGroups.push(targetControl);
+      setExpandedGroups(expandedGroups);
+      showTravelPanel(targetControl);
+    } else {
+      activateTravelControl(targetControl);
+    }
+
+    document.getElementById('travel-content')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
 

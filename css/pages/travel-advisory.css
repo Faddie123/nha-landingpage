@@ -178,6 +178,156 @@
   margin-top: 3px;
   color: var(--blue);
 }
+.travel-overview {
+  padding: 48px 0 54px;
+  background: #f4f7fc;
+}
+.travel-overview-heading {
+  max-width: 860px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+.travel-overview-eyebrow {
+  margin-bottom: 8px;
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}
+.travel-overview-heading h2,
+.travel-browser-heading h2 {
+  margin-bottom: 10px;
+  color: var(--navy-dark);
+  font-size: clamp(24px, 3vw, 34px);
+}
+.travel-overview-heading > p:last-child,
+.travel-browser-heading > p:last-child {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.travel-services-heading {
+  margin-bottom: 18px;
+  color: var(--navy-dark);
+  font-size: 17px;
+}
+.travel-service-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 18px;
+}
+.travel-service-card {
+  position: relative;
+  display: flex;
+  min-height: 224px;
+  grid-column: span 3;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 20px 48px;
+  border: 1px solid #dce5f1;
+  border-radius: 18px;
+  background: #fff;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(16, 38, 79, 0.055);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+.travel-service-card:nth-child(n + 5) {
+  grid-column: span 4;
+}
+.travel-service-card:hover,
+.travel-service-card.is-active {
+  transform: translateY(-3px);
+  border-color: #c4d2e6;
+  box-shadow: 0 15px 30px rgba(16, 38, 79, 0.11);
+}
+.travel-service-card:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+.travel-service-icon {
+  display: grid;
+  width: 62px;
+  height: 62px;
+  flex: none;
+  margin-bottom: 15px;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 24px;
+}
+.travel-icon-blue {
+  background: #eaf2ff;
+  color: var(--blue);
+}
+.travel-icon-green {
+  background: #e9f6ed;
+  color: var(--green);
+}
+.travel-icon-yellow {
+  background: #fff5da;
+  color: #a56d00;
+}
+.travel-icon-navy {
+  background: #e9eef8;
+  color: var(--navy);
+}
+.travel-service-title {
+  margin-bottom: 4px;
+  color: var(--navy-dark);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.travel-service-meta {
+  margin: 0 0 3px;
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 600;
+}
+.travel-service-description {
+  max-width: 240px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+.travel-service-arrow {
+  position: absolute;
+  right: 15px;
+  bottom: 14px;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 50%;
+  background: #eff5ff;
+  color: var(--navy);
+  font-size: 12px;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+.travel-service-card:hover .travel-service-arrow,
+.travel-service-card.is-active .travel-service-arrow {
+  transform: translateX(2px);
+  background: var(--yellow);
+  color: var(--navy-dark);
+}
+.travel-browser-heading {
+  margin-bottom: 22px;
+}
+.travel-browser-heading h2 {
+  margin-bottom: 6px;
+}
+.travel-browser-heading > p:last-child {
+  margin-bottom: 0;
+}
 
 @media (max-width: 760px) {
   .travel-content {
@@ -204,5 +354,36 @@
   .travel-panel {
     min-height: 0;
     padding: 24px 20px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .travel-service-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .travel-service-card,
+  .travel-service-card:nth-child(n + 5) {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 600px) {
+  .travel-overview {
+    padding: 36px 0 42px;
+  }
+  .travel-overview-heading {
+    margin-bottom: 26px;
+  }
+  .travel-service-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .travel-service-card,
+  .travel-service-card:nth-child(n + 5) {
+    min-height: 190px;
+    grid-column: 1;
+  }
+  .travel-services-heading {
+    font-size: 15px;
   }
 }

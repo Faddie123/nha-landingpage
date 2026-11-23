@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Travel advisory and highway information resources from the National Highway Authority of Pakistan.">
+  <meta name="description" content="Plan your journey with NHA road, maintenance, toll, service-area, weigh-station and motorway map information.">
   <title>Travel Advisory | National Highway Authority</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,8 +29,69 @@
     <site-search-button></site-search-button>
   </div></header>
   <main>
-    <section class="detail-hero"><div class="container"><span class="bar"></span><p class="detail-eyebrow">National Highway Authority</p><h1>Travel Advisory</h1><p class="detail-lead">Find highway travel information, safety guidance, toll rates and network resources.</p></div></section>
-    <section class="travel-content" id="travel-content"><div class="container travel-layout">
+    <section class="detail-hero"><div class="container"><span class="bar"></span><p class="detail-eyebrow">National Highway Authority</p><h1>Travel Advisory</h1><p class="detail-lead">Plan your journey before leaving.</p></div></section>
+    <section class="travel-overview">
+      <div class="container">
+        <div class="travel-overview-heading">
+          <p class="travel-overview-eyebrow">Plan ahead. Travel with confidence.</p>
+          <h2>Essential travel information, all in one place</h2>
+          <p>To make planning easier for road users and commuters, NHA's Travel Advisory brings essential journey information together. Explore motorway and highway routes, maintenance activity, toll rates and plaza locations, rest areas, weigh stations, and network maps before you leave.</p>
+        </div>
+        <h3 class="travel-services-heading">Choose a travel service</h3>
+        <div class="travel-service-grid" aria-label="Travel advisory services">
+          <button class="travel-service-card" type="button" data-travel-shortcut="travel-roads" aria-controls="travel-content">
+            <span class="travel-service-icon travel-icon-blue"><i class="fa-solid fa-road" aria-hidden="true"></i></span>
+            <span class="travel-service-title">Roads</span>
+            <span class="travel-service-meta">Motorways / Highways</span>
+            <span class="travel-service-description">Explore routes across Pakistan's highway network.</span>
+            <span class="travel-service-arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </button>
+          <button class="travel-service-card" type="button" data-travel-shortcut="travel-maintenance" aria-controls="travel-content">
+            <span class="travel-service-icon travel-icon-green"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i></span>
+            <span class="travel-service-title">Maintenance Activities</span>
+            <span class="travel-service-description">Check available information about highway maintenance.</span>
+            <span class="travel-service-arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </button>
+          <button class="travel-service-card" type="button" data-travel-shortcut="travel-toll-rates" aria-controls="travel-content">
+            <span class="travel-service-icon travel-icon-yellow"><i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i></span>
+            <span class="travel-service-title">Toll Rates</span>
+            <span class="travel-service-description">View toll rate resources for motorways and highways.</span>
+            <span class="travel-service-arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </button>
+          <button class="travel-service-card" type="button" data-travel-shortcut="travel-toll-plazas" aria-controls="travel-content">
+            <span class="travel-service-icon travel-icon-navy"><i class="fa-solid fa-road-barrier" aria-hidden="true"></i></span>
+            <span class="travel-service-title">Toll Plaza Locations</span>
+            <span class="travel-service-description">Browse toll plaza location information by route.</span>
+            <span class="travel-service-arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </button>
+          <button class="travel-service-card" type="button" data-travel-shortcut="travel-rest-areas" aria-controls="travel-content">
+            <span class="travel-service-icon travel-icon-green"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i></span>
+            <span class="travel-service-title">Rest Area Locations</span>
+            <span class="travel-service-description">Find rest area resources to help plan a break.</span>
+            <span class="travel-service-arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </button>
+          <button class="travel-service-card" type="button" data-travel-shortcut="travel-weigh-stations" aria-controls="travel-content">
+            <span class="travel-service-icon travel-icon-blue"><i class="fa-solid fa-weight-hanging" aria-hidden="true"></i></span>
+            <span class="travel-service-title">Weigh Station Locations</span>
+            <span class="travel-service-description">Browse available weigh station information.</span>
+            <span class="travel-service-arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </button>
+          <button class="travel-service-card" type="button" data-travel-shortcut="travel-maps" aria-controls="travel-content">
+            <span class="travel-service-icon travel-icon-navy"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i></span>
+            <span class="travel-service-title">Maps of Motorways and Highways</span>
+            <span class="travel-service-description">Explore maps and route resources for the network.</span>
+            <span class="travel-service-arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section class="travel-content" id="travel-content"><div class="container">
+      <div class="travel-browser-heading">
+        <p class="travel-overview-eyebrow">Detailed travel browser</p>
+        <h2>Explore travel information</h2>
+        <p>Select a service above or browse the sections below.</p>
+      </div>
+      <div class="travel-layout">
       <nav class="travel-nav" aria-label="Travel advisory sections">
         <p class="travel-nav-label">Travel Advisory</p>
         <button type="button" class="travel-nav-button is-active" data-travel-panel="travel-about" aria-controls="travel-about" aria-pressed="true"><i class="fa-regular fa-building" aria-hidden="true"></i><span>About</span></button>
@@ -258,6 +319,7 @@
             <a class="btn btn-navy sm travel-action" href="contact.html">Contact NHA <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
           </div>
         </article>
+      </div>
       </div>
     </div></section>
   </main>
