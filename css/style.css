@@ -3296,34 +3296,7 @@ body {
   font-size: clamp(27px, 2.3vw, 34px);
 }
 
-/* Primary navigation styled to match the clean NHA header reference */
-.topbar-inner {
-  max-width: 1660px;
-  min-height: 34px;
-}
-.header-inner {
-  max-width: 100%;
-  min-height: 118px;
-  gap: 24px;
-  padding-right: 16px;
-  padding-left: 36px;
-}
-.logo {
-  gap: 26px;
-}
-.logo-image {
-  width: 84px;
-  height: 78px;
-}
-.logo-text strong {
-  font-size: 42px;
-}
-.logo-text span {
-  font-size: 14px;
-}
-.logo-text small {
-  font-size: 13px;
-}
+/* Primary navigation text sizing and spacing */
 .nav {
   flex: 1;
   justify-content: space-between;
@@ -3331,38 +3304,12 @@ body {
   margin-left: 0;
 }
 .header .nav a {
-  padding: 11px 16px;
-  font-size: 20px !important;
-}
-.search-btn {
-  width: 68px;
-  height: 68px;
-  font-size: 19px;
+  padding: 8px clamp(5px, 0.4vw, 7px);
+  font-size: clamp(13px, 0.7vw, 14px) !important;
+  white-space: nowrap;
 }
 
 @media (max-width: 1850px) {
-  .header-inner {
-    position: relative;
-    min-height: 78px;
-    padding-right: 28px;
-    padding-left: 28px;
-  }
-  .logo {
-    gap: 12px;
-  }
-  .logo-image {
-    width: 58px;
-    height: 54px;
-  }
-  .logo-text strong {
-    font-size: 30px;
-  }
-  .logo-text span {
-    font-size: 11px;
-  }
-  .logo-text small {
-    font-size: 10px;
-  }
   .nav {
     flex: 1;
     justify-content: space-between;
@@ -3370,20 +3317,12 @@ body {
     margin-left: 0;
   }
   .header .nav a {
-    padding: 7px clamp(4px, 0.7vw, 12px);
-    font-size: clamp(12px, 0.8vw, 15px) !important;
-  }
-  .search-btn {
-    width: 48px;
-    height: 48px;
-    font-size: 16px;
+    padding: 7px clamp(5px, 0.4vw, 7px);
+    font-size: 13px !important;
   }
 }
 
 @media (max-width: 1250px) {
-  .header-inner {
-    min-height: 78px;
-  }
   .nav {
     display: none;
     position: absolute;
@@ -3409,30 +3348,6 @@ body {
   .header .nav a {
     padding: 11px 14px;
     font-size: 14px !important;
-  }
-}
-
-@media (max-width: 950px) {
-  .header-inner {
-    min-height: 66px;
-  }
-  .logo-image {
-    width: 48px;
-    height: 48px;
-  }
-  .logo-text strong {
-    font-size: 22px;
-  }
-  .logo-text span {
-    font-size: 9px;
-  }
-  .logo-text small {
-    font-size: 8.5px;
-  }
-  .search-btn,
-  .menu-btn {
-    width: 42px;
-    height: 42px;
   }
 }
 
@@ -4523,11 +4438,11 @@ body {
     column-gap: 10px;
   }
   .header-inner > .menu-btn {
-    order: 2;
+    order: 1;
     margin-left: 0;
   }
   .header-inner > site-search-button .search-btn {
-    order: 1;
+    order: 2;
     margin-left: auto;
   }
 }
@@ -4652,4 +4567,95 @@ body {
   .nav {
     transition: none;
   }
+}
+
+@media (max-width: 1400px) and (min-width: 1200px) {
+  .header-inner {
+    position: relative;
+  }
+  .nav {
+    position: fixed;
+    z-index: 1001;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+    display: flex;
+    width: min(360px, 88vw);
+    height: 100vh;
+    height: 100dvh;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 22px 18px;
+    overflow-y: auto;
+    border-radius: 0;
+    background: #fff;
+    box-shadow: -16px 0 42px rgba(8, 24, 56, 0.18);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 0.28s ease, visibility 0s linear 0.28s;
+  }
+  .nav.is-open {
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform 0.28s ease;
+  }
+  .nav-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e4eaf3;
+  }
+  .nav-drawer-header h2 {
+    color: var(--navy);
+  }
+  .nav-close {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    flex: none;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: var(--bg-light);
+    color: var(--navy);
+    cursor: pointer;
+    font-size: 18px;
+  }
+  .nav a {
+    flex: none;
+    padding: 12px 14px;
+    font-size: 14px !important;
+  }
+  .menu-btn {
+    display: grid;
+    place-items: center;
+    margin-left: auto;
+  }
+  body.nav-open .header {
+    z-index: 1001;
+  }
+  body.nav-open {
+    overflow: hidden;
+  }
+  .nav-backdrop {
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    border: 0;
+    background: rgba(8, 24, 56, 0.48);
+    cursor: default;
+  }
+}
+
+.topbar-inner,
+.header-inner {
+  width: 100%;
+  max-width: none;
+  padding-right: clamp(16px, 2vw, 32px);
+  padding-left: clamp(16px, 2vw, 32px);
 }

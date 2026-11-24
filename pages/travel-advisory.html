@@ -9,13 +9,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Kaushan+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/service-detail.css">
   <link rel="stylesheet" href="../css/typography.css">
-  <link rel="stylesheet" href="../css/pages/travel-advisory.css">
   <link rel="stylesheet" href="../css/animations.css">
   <link rel="stylesheet" href="../css/section-browser.css?v=mobile-nav-1">
   <link rel="stylesheet" href="../css/panel-theme.css?v=maintenance-panel-2">
+  <link rel="stylesheet" href="../css/pages/travel-advisory.css">
 </head>
 <body>
   <div class="topbar"><div class="container topbar-inner">
@@ -29,109 +30,17 @@
     <site-search-button></site-search-button>
   </div></header>
   <main>
-    <section class="detail-hero"><div class="container"><span class="bar"></span><p class="detail-eyebrow">National Highway Authority</p><h1>Travel Advisory</h1><p class="detail-lead">Plan your journey before leaving.</p></div></section>
-    <section class="travel-overview">
-      <div class="container">
-        <div class="travel-overview-heading">
-          <p class="travel-overview-eyebrow">Plan ahead. Travel with confidence.</p>
-          <h2>Plan your journey with confidence</h2>
-          <div class="travel-overview-copy">
-            <p class="travel-overview-intro">To facilitate and support the convenience of road users and commuters, NHA is introducing a new website service: <strong>Travel Advisory</strong>.</p>
-            <p class="travel-overview-details">It helps travelers plan their journeys with information about motorways and highways, maintenance activity, toll rates, toll plaza locations, rest areas on motorways, weigh stations, and maps of motorways and highways.</p>
-          </div>
-        </div>
-        <h3 class="travel-services-heading">Travel services at a glance</h3>
-        <div class="travel-service-grid">
-          <article class="travel-service-card">
-            <span class="travel-service-icon travel-icon-blue"><i class="fa-solid fa-road" aria-hidden="true"></i></span>
-            <h4 class="travel-service-title">Roads</h4>
-            <span class="travel-service-meta">Motorways / Highways</span>
-            <p class="travel-service-description">Explore routes across Pakistan's highway network.</p>
-          </article>
-          <article class="travel-service-card">
-            <span class="travel-service-icon travel-icon-green"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i></span>
-            <h4 class="travel-service-title">Maintenance Activities</h4>
-            <p class="travel-service-description">Check available information about highway maintenance.</p>
-          </article>
-          <article class="travel-service-card">
-            <span class="travel-service-icon travel-icon-yellow"><i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i></span>
-            <h4 class="travel-service-title">Toll Rates</h4>
-            <p class="travel-service-description">View toll rate resources for motorways and highways.</p>
-          </article>
-          <article class="travel-service-card">
-            <span class="travel-service-icon travel-icon-navy"><i class="fa-solid fa-road-barrier" aria-hidden="true"></i></span>
-            <h4 class="travel-service-title">Toll Plaza Locations</h4>
-            <p class="travel-service-description">Browse toll plaza location information by route.</p>
-          </article>
-          <article class="travel-service-card">
-            <span class="travel-service-icon travel-icon-green"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i></span>
-            <h4 class="travel-service-title">Rest Area Locations</h4>
-            <p class="travel-service-description">Find rest area resources to help plan a break.</p>
-          </article>
-          <article class="travel-service-card">
-            <span class="travel-service-icon travel-icon-blue"><i class="fa-solid fa-weight-hanging" aria-hidden="true"></i></span>
-            <h4 class="travel-service-title">Weigh Station Locations</h4>
-            <p class="travel-service-description">Browse available weigh station information.</p>
-          </article>
-          <article class="travel-service-card">
-            <span class="travel-service-icon travel-icon-navy"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i></span>
-            <h4 class="travel-service-title">Maps of Motorways and Highways</h4>
-            <p class="travel-service-description">Explore maps and route resources for the network.</p>
-          </article>
-        </div>
-      </div>
-    </section>
     <section class="travel-content" id="travel-content"><div class="container">
-      <div class="travel-browser-heading">
-        <p class="travel-overview-eyebrow">Detailed travel browser</p>
-        <h2>Explore travel information</h2>
-        <p>Browse the sections below for detailed route, maintenance, toll, and location information.</p>
-      </div>
       <div class="travel-layout">
       <nav class="travel-nav" aria-label="Travel advisory sections">
-        <p class="travel-nav-label">Travel Advisory</p>
-        <button type="button" class="travel-nav-button is-active" data-travel-panel="travel-about" aria-controls="travel-about" aria-pressed="true"><i class="fa-regular fa-building" aria-hidden="true"></i><span>About</span></button>
-        <button type="button" class="travel-nav-button" data-travel-panel="travel-road-safety" aria-controls="travel-road-safety" aria-pressed="false"><i class="fa-solid fa-shield-heart" aria-hidden="true"></i><span>Road Safety</span></button>
-        <button type="button" class="travel-nav-button has-subnav" data-travel-panel="travel-roads" data-travel-toggle="travel-roads-subnav" aria-controls="travel-roads travel-roads-subnav" aria-expanded="false" aria-pressed="false"><i class="fa-solid fa-road" aria-hidden="true"></i><span>Roads</span><i class="fa-solid fa-chevron-down nav-chevron" aria-hidden="true"></i></button>
-        <div class="travel-subnav" id="travel-roads-subnav" hidden>
-          <button type="button" class="travel-nav-button has-subnav" data-travel-panel="travel-roads-motorways" data-travel-toggle="travel-roads-motorways-subnav" aria-controls="travel-roads-motorways travel-roads-motorways-subnav" aria-expanded="false" aria-pressed="false"><i class="fa-solid fa-road" aria-hidden="true"></i><span>Motorways</span><i class="fa-solid fa-chevron-down nav-chevron" aria-hidden="true"></i></button>
-          <div class="travel-subnav" id="travel-roads-motorways-subnav" hidden>
-            <button type="button" class="travel-nav-button" data-travel-panel="travel-road-detail" data-route-title="Islamabad-Peshawar Motorway (M-1)" aria-controls="travel-road-detail" aria-pressed="false"><span>Islamabad-Peshawar Motorway (M-1)</span></button>
-            <button type="button" class="travel-nav-button" data-travel-panel="travel-road-detail" data-route-title="Lahore-Islamabad Motorway (M-2)" aria-controls="travel-road-detail" aria-pressed="false"><span>Lahore-Islamabad Motorway (M-2)</span></button>
-            <button type="button" class="travel-nav-button" data-travel-panel="travel-road-detail" data-route-title="Lahore-Abdul Hakeem Motorway (M-3)" aria-controls="travel-road-detail" aria-pressed="false"><span>Lahore-Abdul Hakeem Motorway (M-3)</span></button>
-            <button type="button" class="travel-nav-button" data-travel-panel="travel-road-detail" data-route-title="Faisalabad-Pindi Bhattian Section (M-4)" aria-controls="travel-road-detail" aria-pressed="false"><span>Faisalabad-Pindi Bhattian Section (M-4)</span></button>
-            <button type="button" class="travel-nav-button" data-travel-panel="travel-road-detail" data-route-title="Faisalabad-Gojra Section (M-4)" aria-controls="travel-road-detail" aria-pressed="false"><span>Faisalabad-Gojra Section (M-4)</span></button>
-            <button type="button" class="travel-nav-button" data-travel-panel="travel-road-detail" data-route-title="Gojra-Shorkot Section (M-4)" aria-controls="travel-road-detail" aria-pressed="false"><span>Gojra-Shorkot Section (M-4)</span></button>
-          </div>
-          <button type="button" class="travel-nav-button has-subnav" data-travel-panel="travel-roads-highways" data-travel-toggle="travel-roads-highways-subnav" aria-controls="travel-roads-highways travel-roads-highways-subnav" aria-expanded="false" aria-pressed="false"><i class="fa-solid fa-road" aria-hidden="true"></i><span>Highways</span><i class="fa-solid fa-chevron-down nav-chevron" aria-hidden="true"></i></button>
-          <div class="travel-subnav" id="travel-roads-highways-subnav" hidden>
-            <button type="button" class="travel-nav-button" data-travel-panel="travel-road-detail" data-route-title="National Highway 5 (Torkham-Karachi) N-5" aria-controls="travel-road-detail" aria-pressed="false"><span>National Highway 5 (Torkham-Karachi) N-5</span></button>
-            <button type="button" class="travel-nav-button" data-travel-panel="travel-road-detail" data-route-title="National Highway 10 (Karachi-Gwadar) N-10" aria-controls="travel-road-detail" aria-pressed="false"><span>National Highway 10 (Karachi-Gwadar) N-10</span></button>
-            <button type="button" class="travel-nav-button" data-travel-panel="travel-road-detail" data-route-title="National Highway 15 (Mansehra-Chilas) N-15" aria-controls="travel-road-detail" aria-pressed="false"><span>National Highway 15 (Mansehra-Chilas) N-15</span></button>
-            <button type="button" class="travel-nav-button" data-travel-panel="travel-road-detail" data-route-title="National Highway 25 (Karachi-Chaman, Quetta) N-25" aria-controls="travel-road-detail" aria-pressed="false"><span>National Highway 25 (Karachi-Chaman, Quetta) N-25</span></button>
-            <button type="button" class="travel-nav-button" data-travel-panel="travel-road-detail" data-route-title="National Highway 30 (Basima-Khuzdar) N-30" aria-controls="travel-road-detail" aria-pressed="false"><span>National Highway 30 (Basima-Khuzdar) N-30</span></button>
-            <button type="button" class="travel-nav-button" data-travel-panel="travel-road-detail" data-route-title="National Highway 35 (Hassanabdal-Khunjerab) N-35" aria-controls="travel-road-detail" aria-pressed="false"><span>National Highway 35 (Hassanabdal-Khunjerab) N-35</span></button>
-          </div>
-        </div>
-        <button type="button" class="travel-nav-button" data-travel-panel="travel-maintenance" aria-controls="travel-maintenance" aria-pressed="false"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i><span>Maintenance activity</span></button>
-        <button type="button" class="travel-nav-button has-subnav" data-travel-panel="travel-toll-rates" data-travel-toggle="travel-toll-rates-subnav" aria-controls="travel-toll-rates travel-toll-rates-subnav" aria-expanded="false" aria-pressed="false"><i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i><span>Toll Rates</span><i class="fa-solid fa-chevron-down nav-chevron" aria-hidden="true"></i></button>
-        <div class="travel-subnav" id="travel-toll-rates-subnav" hidden>
-          <button type="button" class="travel-nav-button" data-travel-panel="travel-toll-rates-motorways" aria-controls="travel-toll-rates-motorways" aria-pressed="false"><i class="fa-solid fa-road" aria-hidden="true"></i><span>Motorways</span></button>
-          <button type="button" class="travel-nav-button" data-travel-panel="travel-toll-rates-highways" aria-controls="travel-toll-rates-highways" aria-pressed="false"><i class="fa-solid fa-road" aria-hidden="true"></i><span>Highways</span></button>
-        </div>
-        <button type="button" class="travel-nav-button has-subnav" data-travel-panel="travel-toll-plazas" data-travel-toggle="travel-toll-plazas-subnav" aria-controls="travel-toll-plazas travel-toll-plazas-subnav" aria-expanded="false" aria-pressed="false"><i class="fa-solid fa-booth-curtain" aria-hidden="true"></i><span>Toll Plaza Locations</span><i class="fa-solid fa-chevron-down nav-chevron" aria-hidden="true"></i></button>
-        <div class="travel-subnav" id="travel-toll-plazas-subnav" hidden>
-          <button type="button" class="travel-nav-button has-subnav" data-travel-panel="travel-toll-plazas-motorways" data-travel-toggle="travel-toll-plazas-motorways-subnav" aria-controls="travel-toll-plazas-motorways travel-toll-plazas-motorways-subnav" aria-expanded="false" aria-pressed="false"><i class="fa-solid fa-road" aria-hidden="true"></i><span>Motorways</span><i class="fa-solid fa-chevron-down nav-chevron" aria-hidden="true"></i></button>
-          <div class="travel-subnav" id="travel-toll-plazas-motorways-subnav" hidden>
-            <button type="button" class="travel-nav-button" data-travel-panel="travel-toll-plazas-detail" data-toll-title="M-1" aria-controls="travel-toll-plazas-detail" aria-pressed="false"><span>M-1</span></button>
-          </div>
-          <button type="button" class="travel-nav-button has-subnav" data-travel-panel="travel-toll-plazas-highways" data-travel-toggle="travel-toll-plazas-highways-subnav" aria-controls="travel-toll-plazas-highways travel-toll-plazas-highways-subnav" aria-expanded="false" aria-pressed="false"><i class="fa-solid fa-road" aria-hidden="true"></i><span>Highways</span><i class="fa-solid fa-chevron-down nav-chevron" aria-hidden="true"></i></button>
-          <div class="travel-subnav" id="travel-toll-plazas-highways-subnav" hidden>
-            <button type="button" class="travel-nav-button" data-travel-panel="travel-toll-plazas-detail" data-toll-title="N-5" aria-controls="travel-toll-plazas-detail" aria-pressed="false"><span>N-5</span></button>
-          </div>
-        </div>
-        <button type="button" class="travel-nav-button" data-travel-panel="travel-rest-areas" aria-controls="travel-rest-areas" aria-pressed="false"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i><span>Rest Area Locations</span></button>
-        <button type="button" class="travel-nav-button" data-travel-panel="travel-weigh-stations" aria-controls="travel-weigh-stations" aria-pressed="false"><i class="fa-solid fa-weight-hanging" aria-hidden="true"></i><span>Weigh Station Locations</span></button>
+        <p class="travel-nav-label">Motorways</p>
+        <button type="button" class="travel-nav-button route-nav-button" data-travel-panel="travel-road-detail" data-route-title="M-1: Peshawar to Islamabad" data-route-code="M-1" data-route-from="Peshawar" data-route-to="Islamabad" aria-controls="travel-road-detail" aria-pressed="false"><i class="fa-solid fa-road route-nav-icon" aria-hidden="true"></i><span><strong>M-1</strong><small>Peshawar to Islamabad</small></span></button>
+        <button type="button" class="travel-nav-button route-nav-button" data-travel-panel="travel-road-detail" data-route-title="M-2: Lahore to Islamabad" data-route-code="M-2" data-route-from="Lahore" data-route-to="Islamabad" aria-controls="travel-road-detail" aria-pressed="false"><i class="fa-solid fa-road route-nav-icon" aria-hidden="true"></i><span><strong>M-2</strong><small>Lahore to Islamabad</small></span></button>
+        <button type="button" class="travel-nav-button route-nav-button is-active" data-travel-panel="travel-road-detail" data-route-title="M-3: Lahore to Abdul Hakeem" data-route-code="M-3" data-route-from="Lahore" data-route-to="Abdul Hakeem" aria-controls="travel-road-detail" aria-pressed="true"><i class="fa-solid fa-road route-nav-icon" aria-hidden="true"></i><span><strong>M-3</strong><small>Lahore to Abdul Hakeem</small></span></button>
+        <button type="button" class="travel-nav-button route-nav-button" data-travel-panel="travel-road-detail" data-route-title="M-4: Pindi Bhattian to Multan" data-route-code="M-4" data-route-from="Pindi Bhattian" data-route-to="Multan" aria-controls="travel-road-detail" aria-pressed="false"><i class="fa-solid fa-road route-nav-icon" aria-hidden="true"></i><span><strong>M-4</strong><small>Pindi Bhattian to Multan</small></span></button>
+        <button type="button" class="travel-nav-button route-nav-button" data-travel-panel="travel-road-detail" data-route-title="M-5: Multan to Sukkur" data-route-code="M-5" data-route-from="Multan" data-route-to="Sukkur" aria-controls="travel-road-detail" aria-pressed="false"><i class="fa-solid fa-road route-nav-icon" aria-hidden="true"></i><span><strong>M-5</strong><small>Multan to Sukkur</small></span></button>
+        <button type="button" class="travel-nav-button route-nav-button" data-travel-panel="travel-road-detail" data-route-title="M-9: Karachi to Hyderabad" data-route-code="M-9" data-route-from="Karachi" data-route-to="Hyderabad" aria-controls="travel-road-detail" aria-pressed="false"><i class="fa-solid fa-road route-nav-icon" aria-hidden="true"></i><span><strong>M-9</strong><small>Karachi to Hyderabad</small></span></button>
+        <button type="button" class="travel-nav-button highway-nav-button" data-travel-panel="travel-roads-highways" aria-controls="travel-roads-highways" aria-pressed="false"><i class="fa-solid fa-road" aria-hidden="true"></i><span>Highways</span></button>
         <button type="button" class="travel-nav-button has-subnav" data-travel-panel="travel-maps" data-travel-toggle="travel-maps-subnav" aria-controls="travel-maps travel-maps-subnav" aria-expanded="false" aria-pressed="false"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i><span>Maps</span><i class="fa-solid fa-chevron-down nav-chevron" aria-hidden="true"></i></button>
         <div class="travel-subnav" id="travel-maps-subnav" hidden>
           <button type="button" class="travel-nav-button has-subnav" data-travel-panel="travel-map-toll-plaza" data-travel-toggle="travel-map-toll-plaza-subnav" aria-controls="travel-map-toll-plaza travel-map-toll-plaza-subnav" aria-expanded="false" aria-pressed="false"><i class="fa-solid fa-booth-curtain" aria-hidden="true"></i><span>Toll Plaza</span><i class="fa-solid fa-chevron-down nav-chevron" aria-hidden="true"></i></button>
@@ -192,7 +101,7 @@
         </div>
       </nav>
       <div class="travel-panels">
-        <article class="travel-panel" id="travel-about">
+        <article class="travel-panel" id="travel-about" hidden>
           <span class="travel-panel-icon"><i class="fa-regular fa-building" aria-hidden="true"></i></span><p class="detail-eyebrow">National Highway Authority</p><h2>About NHA</h2>
           <p>Learn about NHA and its role in Pakistanâ€™s national highway and motorway network.</p>
           <a class="btn btn-navy sm travel-action" href="about.html">View Details <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
@@ -217,13 +126,44 @@
           <p>Choose a national highway route from the menu to view its details.</p>
           <a class="btn btn-navy sm travel-action" href="projects.html">View Highway Projects <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
         </article>
-        <article class="travel-panel" id="travel-road-detail" hidden>
-          <span class="travel-panel-icon"><i class="fa-solid fa-road" aria-hidden="true"></i></span><p class="detail-eyebrow">Road network route</p><h2 id="travel-road-detail-title">Route details</h2>
-          <button type="button" class="btn btn-navy sm travel-action" data-detail-toggle aria-expanded="false" aria-controls="travel-road-detail-content">View Detail</button>
-          <div class="travel-detail-content" id="travel-road-detail-content" hidden>
-            <p>Route details and map information for this road are not yet available on this page.</p>
-            <div class="travel-notice"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span>Contact NHA for current route information.</span></div>
-            <a class="btn btn-navy sm travel-action" href="contact.html">Contact NHA <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        <article class="travel-panel route-detail-panel" id="travel-road-detail">
+          <div class="route-card-header">
+            <h2><i class="fa-solid fa-road" aria-hidden="true"></i><span id="travel-road-detail-title">M-3: Lahore to Abdul Hakeem</span></h2>
+            <span class="map-data-badge"><i class="fa-solid fa-map" aria-hidden="true"></i> OpenStreetMap</span>
+          </div>
+          <div class="route-map-shell">
+            <div class="route-map" id="route-map" role="application" aria-label="Interactive OpenStreetMap motorway map"></div>
+            <div class="map-compass" aria-hidden="true"><i class="fa-solid fa-location-arrow"></i><span>N</span></div>
+            <p class="route-map-status" id="route-map-status" role="status">Loading route map…</p>
+          </div>
+          <div class="route-legend" aria-label="Route legend">
+            <span><i class="legend-route"></i>Motorway route</span>
+            <span><i class="legend-endpoint"></i>Route endpoint</span>
+            <span><i class="legend-toll-plaza"></i>NHA-mapped interchange</span>
+            <span id="route-rest-legend-item"><i class="legend-rest-area"></i>Rest area (demo)</span>
+          </div>
+          <div class="route-stats">
+            <div class="route-stat"><i class="fa-solid fa-road" aria-hidden="true"></i><div><strong id="route-length">230 km</strong><span>Route length</span></div></div>
+            <div class="route-stat"><i class="fa-solid fa-coins" aria-hidden="true"></i><div><strong id="route-toll-plaza-count">2</strong><span id="route-toll-count-label">Toll plazas</span></div></div>
+            <div class="route-stat"><i class="fa-regular fa-clock" aria-hidden="true"></i><div><strong id="route-drive-time">—</strong><span>Drive estimate</span></div></div>
+            <div class="route-stat"><i class="fa-solid fa-map" aria-hidden="true"></i><div><strong id="route-network">NHA</strong><span>Route network</span></div></div>
+          </div>
+          <div class="route-lists">
+            <div class="route-info-card">
+              <h3><i class="fa-solid fa-road-barrier" aria-hidden="true"></i>Toll Plaza / Interchange Locations</h3>
+              <ul id="route-toll-plazas-list"></ul>
+              <p class="route-data-note" id="route-toll-plazas-note">Yellow markers are indicative demo points, not verified NHA toll-plaza locations. Check official NHA information before travelling.</p>
+            </div>
+            <div class="route-info-card">
+              <h3><i class="fa-solid fa-mug-hot" aria-hidden="true"></i>Rest Areas</h3>
+              <ul id="route-rest-areas-list"></ul>
+              <p class="route-data-note" id="route-rest-areas-note">Green markers show illustrative demo stops along the route, not verified NHA rest-area locations. Check NHA updates before travelling.</p>
+            </div>
+          </div>
+          <div class="route-actions">
+            <a class="route-action" href="toll-rates.html"><i class="fa-solid fa-coins route-action-icon" aria-hidden="true"></i><span>Toll rates</span></a>
+            <a class="route-action" href="maintenance-works.html"><i class="fa-solid fa-screwdriver-wrench route-action-icon" aria-hidden="true"></i><span id="route-maintenance-status">Check maintenance updates</span></a>
+            <button type="button" class="route-action" id="download-route-map"><i class="fa-solid fa-download route-action-icon" aria-hidden="true"></i><span>Download route details</span></button>
           </div>
         </article>
         <article class="travel-panel" id="travel-maintenance" hidden>
@@ -327,6 +267,7 @@
     <div class="follow"><h5>Follow Us</h5><div class="social"><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></div></div>
   </div><div class="footer-bottom"><div class="container fb-inner"><span>Â© 2026 National Highway Authority. All Rights Reserved.</span><span><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Sitemap</a></span></div></div></footer>
   <script src="../js/service-detail.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="../js/travel-advisory.js"></script>
   <script src="../js/site-navigation.js"></script>
   <script src="../js/site-search.js"></script>
