@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/service-detail.css">
+  <link rel="stylesheet" href="../css/pages/toll-rates.css">
   <link rel="stylesheet" href="../css/typography.css">
   <link rel="stylesheet" href="../css/animations.css">
   <link rel="stylesheet" href="../css/panel-theme.css?v=maintenance-panel-2">
@@ -26,23 +27,76 @@
     <site-search-button></site-search-button>
   </div></header>
   <main>
-    <section class="detail-hero"><div class="container"><span class="bar"></span><p class="detail-eyebrow">National Highway Authority</p><h1>Toll Rates</h1><p class="detail-lead">Highway toll rates by vehicle category and toll location.</p></div></section>
-    <section class="detail-content" id="highway-rates"><div class="container">
-      <div class="detail-heading"><h2>Highway Toll Rates</h2><p>Rates are displayed as supplied. Please confirm current charges at the relevant toll plaza.</p></div>
-      <div class="detail-table-wrap"><table class="detail-table toll-table">
-        <thead><tr><th>#</th><th>Category</th><th>National Highways</th><th>Kohat Tunnel (N-55)</th><th>IMDCW (N-75)</th><th>Mianwali &amp; Khansar</th><th>N-135 Fatehpur &amp; Chowk Sarwar</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>Car</td><td>100</td><td>250</td><td>300</td><td>100</td><td>100</td></tr>
-          <tr><td>2</td><td>Wagon</td><td>200</td><td>650</td><td>300</td><td>200</td><td>200</td></tr>
-          <tr><td>3</td><td>Buses</td><td>300</td><td>750</td><td>450</td><td>300</td><td>300</td></tr>
-          <tr><td>4</td><td>2 Axel Trucks</td><td>400</td><td>750</td><td>500</td><td>300</td><td>400</td></tr>
-          <tr><td>5</td><td>3 Axel Trucks</td><td>400</td><td>750</td><td>500</td><td>400</td><td>400</td></tr>
-          <tr><td>6</td><td>Articulated Trucks</td><td>700</td><td>1150</td><td>1000</td><td>700</td><td>700</td></tr>
-        </tbody>
-      </table></div>
-      <div class="detail-card detail-card-spaced"><h3>Motorway Toll Rates</h3><p>Motorway toll rates were listed as a category, but no rates were provided.</p><span class="detail-status"><i class="fa-regular fa-clock"></i> Coming soon</span></div>
-      <p class="detail-count detail-note-spaced">Rates are shown in Pakistani Rupees (PKR); no currency symbol was included in the supplied schedule.</p>
-    </div></section>
+    <section class="toll-dashboard" id="highway-rates">
+      <div class="container">
+        <div class="toll-dashboard-heading">
+          <div class="toll-dashboard-mark" aria-hidden="true"><i class="fa-solid fa-road"></i></div>
+          <div class="toll-dashboard-title">
+            <p class="toll-dashboard-eyebrow">National Highway Authority <span aria-hidden="true">/</span> Toll information</p>
+            <h1>Highway Toll <span>Rates</span></h1>
+            <p>Rates are displayed as supplied. Please confirm current charges at the relevant toll plaza.</p>
+          </div>
+          <div class="toll-schedule-badge"><span aria-hidden="true"></span> Official schedule</div>
+        </div>
+        <div class="toll-category-heading">
+          <div>
+            <p class="toll-section-eyebrow">Choose your vehicle</p>
+            <h2>Select a category</h2>
+          </div>
+          <p>Tap a vehicle to view its toll charges</p>
+        </div>
+        <div class="toll-category-list" role="group" aria-label="Select a vehicle category">
+          <button class="toll-category is-selected" type="button" data-toll-category="car" aria-pressed="true">
+            <img class="toll-category-image" src="../assets/images/shared/toll-rates/car.png" alt="Car"><span>Car</span><span class="toll-category-action" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+          </button>
+          <button class="toll-category" type="button" data-toll-category="wagon" aria-pressed="false">
+            <img class="toll-category-image" src="../assets/images/shared/toll-rates/wagon.png" alt="Wagon"><span>Wagon</span><span class="toll-category-action" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+          </button>
+          <button class="toll-category" type="button" data-toll-category="bus" aria-pressed="false">
+            <img class="toll-category-image" src="../assets/images/shared/toll-rates/bus.png" alt="Bus"><span>Buses</span><span class="toll-category-action" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+          </button>
+          <button class="toll-category" type="button" data-toll-category="two-axle" aria-pressed="false">
+            <img class="toll-category-image" src="../assets/images/shared/toll-rates/two-axle.png" alt="2 Axle Truck"><span>2 Axle Trucks</span><span class="toll-category-action" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+          </button>
+          <button class="toll-category" type="button" data-toll-category="three-axle" aria-pressed="false">
+            <img class="toll-category-image" src="../assets/images/shared/toll-rates/three-axle.png" alt="3 Axle Truck"><span>3 Axle Trucks</span><span class="toll-category-action" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+          </button>
+          <button class="toll-category" type="button" data-toll-category="articulated" aria-pressed="false">
+            <img class="toll-category-image" src="../assets/images/shared/toll-rates/articulated.png" alt="Articulated Truck"><span>Articulated Trucks</span><span class="toll-category-action" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+          </button>
+        </div>
+
+        <section class="toll-rates-panel" aria-labelledby="toll-rates-title">
+          <button class="toll-rates-panel-heading" type="button" aria-expanded="true" aria-controls="toll-rates-panel-content">
+            <span class="toll-panel-vehicle-icon" aria-hidden="true"><img id="toll-panel-category-image" src="../assets/images/shared/toll-rates/car.png" alt=""></span>
+            <span class="toll-rates-title-wrap"><span class="toll-rates-kicker">Selected vehicle</span><span class="toll-rates-title" id="toll-rates-title">Car – Toll Rates</span></span>
+            <span class="toll-currency-badge">PKR <span>Rates</span></span>
+            <span class="toll-panel-toggle" aria-hidden="true"><i class="fa-solid fa-chevron-up"></i></span>
+          </button>
+          <div class="toll-rates-panel-content" id="toll-rates-panel-content">
+            <div class="toll-table-wrap">
+              <table class="detail-table toll-table">
+                <thead><tr><th>#</th><th>National Highways</th><th>Kohat Tunnel (N-55)</th><th>IMDCW (N-75)</th><th>Mianwali &amp; Khansar</th><th>N-135 Fatehpur &amp; Chowk Sarwar</th></tr></thead>
+                <tbody>
+                  <tr data-toll-row="car"><td>1</td><td>100</td><td>250</td><td>300</td><td>100</td><td>100</td></tr>
+                  <tr data-toll-row="wagon" hidden><td>1</td><td>200</td><td>650</td><td>300</td><td>200</td><td>200</td></tr>
+                  <tr data-toll-row="bus" hidden><td>1</td><td>300</td><td>750</td><td>450</td><td>300</td><td>300</td></tr>
+                  <tr data-toll-row="two-axle" hidden><td>1</td><td>400</td><td>750</td><td>500</td><td>300</td><td>400</td></tr>
+                  <tr data-toll-row="three-axle" hidden><td>1</td><td>400</td><td>750</td><td>500</td><td>400</td><td>400</td></tr>
+                  <tr data-toll-row="articulated" hidden><td>1</td><td>700</td><td>1150</td><td>1000</td><td>700</td><td>700</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <div class="toll-motorway-note">
+          <span class="toll-motorway-icon" aria-hidden="true"><i class="fa-solid fa-road"></i></span>
+          <div class="toll-motorway-copy"><h2>Motorway Toll Rates</h2><p>Motorway toll rates were listed as a category, but no rates were provided.</p></div>
+          <span class="detail-status"><i class="fa-regular fa-clock"></i> Coming soon</span>
+        </div>
+        <p class="toll-currency-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Rates are shown in Pakistani Rupees (PKR).</p>
+      </div>
+    </section>
   </main>
   <footer class="footer highway-footer"><div class="container footer-grid">
     <a href="../index.html" class="logo light"><img class="logo-image" src="../assets/images/shared/branding/nha-logo-footer.png" alt="NHA logo"><div class="logo-text"><strong>NHA</strong><span>National Highway Authority</span><small>Government of Pakistan</small></div></a>
@@ -52,6 +106,7 @@
     <div class="follow"><h5>Follow Us</h5><div class="social"><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></div></div>
   </div><div class="footer-bottom"><div class="container fb-inner"><span>Â© 2026 National Highway Authority. All Rights Reserved.</span><span><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Sitemap</a></span></div></div></footer>
   <script src="../js/service-detail.js"></script>
+  <script src="../js/toll-rates.js"></script>
   <script src="../js/site-navigation.js"></script>
   <script src="../js/site-search.js"></script>
   <script src="../js/site-motion.js"></script>

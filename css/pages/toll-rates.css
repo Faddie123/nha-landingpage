@@ -1,0 +1,832 @@
+.toll-dashboard {
+  position: relative;
+  overflow: hidden;
+  padding: 48px 0 62px;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(196, 220, 255, 0.75), transparent 32%),
+    radial-gradient(ellipse at 0% 100%, rgba(220, 235, 255, 0.85), transparent 28%),
+    #f4f7fc;
+}
+
+.toll-dashboard > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.toll-dashboard-heading {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-height: 164px;
+  margin-bottom: 38px;
+  padding: 30px 34px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 26px;
+  background:
+    linear-gradient(110deg, #10264a 0%, #10264a 62%, #173963 100%);
+  box-shadow: 0 18px 38px rgba(13, 37, 71, 0.2);
+  animation: toll-intro 0.65s ease both;
+}
+
+.toll-dashboard-heading::before {
+  position: absolute;
+  top: 0;
+  left: 34px;
+  width: 62px;
+  height: 4px;
+  border-radius: 0 0 4px 4px;
+  background: #f5c451;
+  content: "";
+}
+
+.toll-dashboard-heading::after {
+  position: absolute;
+  top: 50%;
+  right: 105px;
+  width: 230px;
+  height: 230px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 18px rgba(255, 255, 255, 0.025),
+    0 0 0 39px rgba(245, 196, 81, 0.045),
+    0 0 0 64px rgba(255, 255, 255, 0.025);
+  content: "";
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.toll-dashboard-mark {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 76px;
+  height: 76px;
+  flex: 0 0 76px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 22px;
+  background: #f5c451;
+  color: #102b50;
+  font-size: 34px;
+  box-shadow: 0 10px 22px rgba(5, 20, 42, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.toll-dashboard-heading:hover .toll-dashboard-mark {
+  transform: translateY(-2px) rotate(-3deg);
+  box-shadow: 0 13px 25px rgba(5, 20, 42, 0.3);
+}
+
+.toll-dashboard-title {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  flex: 1;
+}
+
+.toll-dashboard-eyebrow,
+.toll-section-eyebrow {
+  margin: 0 0 7px;
+  color: #f5c451;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.toll-dashboard-title h1 {
+  margin: 0 0 8px;
+  color: #fff;
+  font-size: clamp(32px, 4.2vw, 47px);
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+
+.toll-dashboard-title h1 span {
+  color: #f5c451;
+}
+
+.toll-dashboard-title p {
+  margin: 0;
+  color: #d3deed;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.toll-dashboard-title .toll-dashboard-eyebrow {
+  margin-bottom: 7px;
+  color: #bfd0e7;
+  font-size: 10px;
+  letter-spacing: 1.4px;
+}
+
+.toll-dashboard-eyebrow span {
+  padding: 0 5px;
+  color: #f5c451;
+}
+
+.toll-schedule-badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  flex: 0 0 auto;
+  padding: 11px 15px;
+  border: 1px solid rgba(245, 196, 81, 0.48);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.toll-schedule-badge span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f5c451;
+  box-shadow: 0 0 0 4px rgba(245, 196, 81, 0.14);
+}
+
+.toll-category-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 15px;
+  animation: toll-rise 0.55s 0.08s ease both;
+}
+
+.toll-category-heading h2 {
+  margin: 0;
+  color: #102b50;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.toll-category-heading > p {
+  margin: 0 0 2px;
+  color: #6b7b92;
+  font-size: 12px;
+}
+
+.toll-category-heading .toll-section-eyebrow {
+  margin-bottom: 5px;
+  color: #1d5bb6;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+}
+
+.toll-category-list {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 15px;
+  margin-bottom: 32px;
+}
+
+.toll-category {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 218px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+  padding: 11px;
+  border: 1px solid #e0e8f3;
+  border-radius: 19px;
+  background: #fff;
+  box-shadow: 0 7px 18px rgba(16, 43, 80, 0.07);
+  color: #102b50;
+  cursor: pointer;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  animation: toll-rise 0.5s ease both;
+}
+
+.toll-category:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+.toll-category:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+.toll-category:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+.toll-category:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+.toll-category:nth-child(6) {
+  animation-delay: 0.25s;
+}
+
+.toll-category:hover {
+  transform: translateY(-4px);
+  border-color: #a9c2e4;
+  box-shadow: 0 14px 26px rgba(16, 43, 80, 0.12);
+}
+
+.toll-category.is-selected {
+  border-color: #2363b5;
+  background: #fbfdff;
+  color: #102b50;
+  box-shadow: 0 0 0 3px rgba(35, 99, 181, 0.09), 0 14px 26px rgba(16, 43, 80, 0.12);
+  transform: translateY(-4px);
+}
+
+.toll-category-image {
+  display: block;
+  width: 100%;
+  height: 125px;
+  flex: 0 0 125px;
+  padding: 8px;
+  border-radius: 13px;
+  background: #f0f5fc;
+  object-fit: contain;
+  transition: background-color 0.25s ease, transform 0.35s ease;
+}
+
+.toll-category:hover .toll-category-image {
+  background: #eaf2fd;
+  transform: scale(1.035);
+}
+
+.toll-category.is-selected .toll-category-image {
+  background: #e7f0ff;
+}
+
+.toll-category > span:not(.toll-category-action) {
+  width: 100%;
+  margin-top: 12px;
+  padding: 0 30px 0 2px;
+  color: #102b50;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.toll-category-action {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 50%;
+  background: #10264a;
+  color: #fff;
+  font-size: 12px;
+  box-shadow: 0 3px 8px rgba(16, 43, 80, 0.13);
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.toll-category.is-selected .toll-category-action,
+.toll-category:hover .toll-category-action {
+  background: #f5c451;
+  color: #102b50;
+}
+
+.toll-category:focus-visible {
+  outline: 3px solid rgba(35, 99, 181, 0.3);
+  outline-offset: 3px;
+}
+
+.toll-category-action i {
+  transition: transform 0.2s ease;
+}
+
+.toll-category:hover .toll-category-action i {
+  transform: scale(1.08);
+}
+
+.toll-rates-panel {
+  overflow: hidden;
+  border: 1px solid #dce5f2;
+  border-radius: 21px;
+  background: #fff;
+  box-shadow: 0 14px 30px rgba(16, 43, 80, 0.1);
+  animation: toll-rise 0.55s 0.16s ease both;
+}
+
+.toll-rates-panel-heading {
+  display: flex;
+  width: 100%;
+  min-height: 96px;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 26px;
+  border: 0;
+  background: #10264a;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.toll-rates-panel-heading:hover {
+  background: #10264a;
+}
+
+.toll-panel-vehicle-icon {
+  display: grid;
+  width: 88px;
+  height: 64px;
+  flex: 0 0 88px;
+  place-items: center;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.toll-panel-vehicle-icon img {
+  width: 82px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.toll-rates-title-wrap {
+  display: grid;
+  flex: 1;
+  gap: 3px;
+}
+
+.toll-rates-kicker {
+  color: #f5c451;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.toll-rates-title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.toll-currency-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 13px;
+  border: 1px solid rgba(245, 196, 81, 0.38);
+  border-radius: 9px;
+  background: rgba(245, 196, 81, 0.12);
+  color: #f5c451;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.toll-currency-badge span {
+  color: #d5e0ee;
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.toll-panel-toggle {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  place-items: center;
+  border: 1px solid #f5c451;
+  background: #10264a;
+  border-radius: 50%;
+  color: #f5c451;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.toll-rates-panel-heading:hover .toll-panel-toggle {
+  background: #f5c451;
+  color: #102b50;
+}
+
+.toll-rates-panel-heading[aria-expanded="false"] .toll-panel-toggle i {
+  transform: rotate(180deg);
+}
+
+.toll-panel-toggle i {
+  transition: transform 0.2s ease;
+}
+
+.toll-rates-panel-content {
+  padding: 15px;
+}
+
+.toll-rates-panel-content[hidden] {
+  display: none;
+}
+
+.toll-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #e1e9f4;
+  border-radius: 16px;
+}
+
+.toll-table {
+  min-width: 780px;
+  table-layout: auto;
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.toll-table th,
+.toll-table td {
+  padding: 19px 16px;
+  border-right: 1px solid #e6edf6;
+  border-bottom: 1px solid #e6edf6;
+  color: #102b50;
+  font-size: 18px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.toll-table th:last-child,
+.toll-table td:last-child {
+  border-right: 0;
+}
+
+.toll-table thead th {
+  background: #f0f5fc;
+  color: #102b50;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.toll-table tbody tr {
+  background: #fff;
+}
+
+.toll-table tbody tr:nth-child(even) {
+  background: #f9fbfe;
+}
+
+.toll-table tbody tr[data-toll-row]:not([hidden]) {
+  animation: toll-row-in 0.35s ease both;
+}
+
+.toll-table tbody tr[hidden] {
+  display: none;
+}
+
+.toll-table tbody td:first-child {
+  width: 58px;
+  color: #1c5db5;
+  font-weight: 700;
+}
+
+.toll-motorway-note {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 24px;
+  padding: 19px 21px;
+  border: 1px solid #dce5f2;
+  border-left: 4px solid #f5c451;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(16, 43, 80, 0.05);
+}
+
+.toll-motorway-icon {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  place-items: center;
+  border-radius: 12px;
+  background: #edf4ff;
+  color: #164b9c;
+  font-size: 18px;
+}
+
+.toll-motorway-copy {
+  flex: 1;
+}
+
+.toll-motorway-note h2 {
+  margin: 0 0 4px;
+  color: #102b50;
+  font-size: 16px;
+}
+
+.toll-motorway-note p,
+.toll-currency-note {
+  margin: 0;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.toll-motorway-note .detail-status {
+  flex: 0 0 auto;
+  margin-top: 0;
+}
+
+.toll-currency-note {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  padding-left: 2px;
+}
+
+.toll-currency-note i {
+  color: #1c5db5;
+}
+
+@keyframes toll-intro {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toll-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toll-row-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1050px) {
+  .toll-category-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 950px) {
+  .toll-table thead {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    clip-path: none;
+  }
+
+  .toll-table tbody {
+    display: table-row-group;
+    width: auto;
+  }
+
+  .toll-table tbody tr {
+    display: table-row;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .toll-table tbody td {
+    min-width: 0;
+    padding: 11px 14px;
+    border-right: 1px solid #dfe6f0;
+    border-bottom: 1px solid #e4eaf3;
+    overflow-wrap: normal;
+  }
+
+  .toll-table tbody td:first-child {
+    display: table-cell;
+  }
+
+  .toll-table tbody td:nth-child(2) {
+    grid-column: auto;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .toll-table tbody td:nth-child(n + 3)::before {
+    content: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .toll-dashboard {
+    padding: 28px 0 40px;
+  }
+
+  .toll-dashboard-heading {
+    align-items: center;
+    gap: 13px;
+    min-height: 0;
+    margin-bottom: 26px;
+    padding: 20px 17px;
+    border-radius: 18px;
+  }
+
+  .toll-dashboard-heading::before {
+    left: 17px;
+    width: 42px;
+  }
+
+  .toll-dashboard-heading::after {
+    right: -120px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .toll-dashboard-mark {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+    border-radius: 13px;
+    font-size: 23px;
+  }
+
+  .toll-dashboard-title {
+    padding: 0;
+  }
+
+  .toll-dashboard-title h1 {
+    font-size: 24px;
+    letter-spacing: -0.025em;
+  }
+
+  .toll-dashboard-title p {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .toll-dashboard-title .toll-dashboard-eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.8px;
+  }
+
+  .toll-schedule-badge {
+    display: none;
+  }
+
+  .toll-category-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .toll-category-heading h2 {
+    font-size: 20px;
+  }
+
+  .toll-category-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+
+  .toll-category {
+    min-height: 188px;
+    padding: 9px;
+    border-radius: 16px;
+    font-size: 13px;
+  }
+
+  .toll-category-image {
+    height: 106px;
+    flex-basis: 106px;
+    padding: 6px;
+  }
+
+  .toll-category > span:not(.toll-category-action) {
+    margin-top: 10px;
+    padding-right: 23px;
+    font-size: 12px;
+  }
+
+  .toll-category-action {
+    right: 9px;
+    bottom: 8px;
+    width: 27px;
+    height: 27px;
+    font-size: 11px;
+  }
+
+  .toll-rates-panel-heading {
+    min-height: 68px;
+    gap: 9px;
+    padding: 9px 10px;
+  }
+
+  .toll-panel-vehicle-icon {
+    width: 47px;
+    height: 42px;
+    flex-basis: 47px;
+    border-radius: 10px;
+  }
+
+  .toll-panel-vehicle-icon img {
+    width: 44px;
+    height: 39px;
+  }
+
+  .toll-rates-kicker {
+    font-size: 8px;
+  }
+
+  .toll-rates-title {
+    font-size: 14px;
+  }
+
+  .toll-currency-badge {
+    gap: 0;
+    padding: 7px 8px;
+    font-size: 9px;
+  }
+
+  .toll-currency-badge span {
+    display: none;
+  }
+
+  .toll-panel-toggle {
+    width: 31px;
+    height: 31px;
+    flex-basis: 31px;
+  }
+
+  .toll-rates-panel-content {
+    padding: 8px;
+  }
+
+  .toll-table th,
+  .toll-table td {
+    padding: 11px 12px;
+    font-size: 13px;
+  }
+
+  .toll-table thead th {
+    font-size: 12px;
+  }
+
+  .toll-motorway-note {
+    gap: 12px;
+    padding: 15px;
+  }
+
+  .toll-motorway-icon {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+  }
+
+  .toll-motorway-note h2 {
+    font-size: 14px;
+  }
+
+  .toll-motorway-note p {
+    font-size: 11px;
+  }
+
+  .toll-motorway-note .detail-status {
+    padding: 5px 8px;
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toll-dashboard-heading,
+  .toll-category-heading,
+  .toll-category,
+  .toll-rates-panel,
+  .toll-table tbody tr[data-toll-row]:not([hidden]),
+  .toll-category-image,
+  .toll-category-action,
+  .toll-category-action i,
+  .toll-panel-toggle i {
+    animation: none;
+    transition: none;
+  }
+}
