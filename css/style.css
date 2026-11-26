@@ -4378,6 +4378,15 @@ body {
   padding: 44px 28px 34px;
 }
 
+.home-footer h5::after {
+  transition: width 0.28s ease;
+}
+
+.home-footer .home-footer-contact:hover h5::after,
+.home-footer .home-footer-follow:hover h5::after {
+  width: 100%;
+}
+
 .home-footer-branding {
   display: flex;
   align-items: center;
