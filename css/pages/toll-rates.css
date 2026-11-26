@@ -741,6 +741,13 @@
     padding: 9px 10px;
   }
 
+  .toll-detail-toggle {
+    min-height: 32px;
+    gap: 5px;
+    padding: 6px 8px;
+    font-size: 9px;
+  }
+
   .toll-panel-vehicle-icon {
     width: 47px;
     height: 42px;
@@ -818,6 +825,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   .toll-dashboard-heading,
+  .toll-rate-card,
+  .toll-detail-toggle,
+  .toll-rate-section,
   .toll-category-heading,
   .toll-category,
   .toll-rates-panel,
@@ -828,5 +838,433 @@
   .toll-panel-toggle i {
     animation: none;
     transition: none;
+  }
+}
+
+.toll-notice-summary {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 0 0 30px;
+  padding: 18px 22px;
+  border: 1px solid #dce5f2;
+  border-left: 4px solid #f5c451;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(16, 43, 80, 0.05);
+}
+
+.toll-notice-icon,
+.toll-rate-section-icon {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  place-items: center;
+  border-radius: 13px;
+  background: #edf4ff;
+  color: #164b9c;
+  font-size: 19px;
+}
+
+.toll-notice-summary p {
+  display: grid;
+  flex: 1;
+  gap: 3px;
+  margin: 0;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.toll-notice-summary p strong {
+  color: #102b50;
+  font-size: 14px;
+}
+
+.toll-effective-label {
+  flex: 0 0 auto;
+  padding: 9px 12px;
+  border-radius: 20px;
+  background: #fff5d8;
+  color: #76570e;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.toll-rate-section {
+  margin-top: 30px;
+  overflow: hidden;
+  border: 1px solid #dce5f2;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(16, 43, 80, 0.07);
+  animation: toll-rise 0.55s ease both;
+}
+
+.toll-rate-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 21px;
+  border-bottom: 1px solid #e6edf6;
+}
+
+.toll-rate-section-heading .toll-rate-section-icon {
+  background: #10264a;
+  color: #f5c451;
+}
+
+.toll-rate-section-heading h2 {
+  margin: 0;
+  color: #102b50;
+  font-size: 21px;
+}
+
+.toll-rate-section-heading .toll-section-eyebrow {
+  margin: 0 0 3px;
+  color: #1d5bb6;
+  font-size: 9px;
+}
+
+.toll-rate-unit {
+  margin-left: auto;
+  color: #6b7b92;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.toll-rate-card-grid {
+  display: none;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  padding: 16px;
+}
+
+.toll-dashboard.has-dynamic-rates .toll-official-table-wrap {
+  display: none;
+}
+
+.toll-dashboard.has-dynamic-rates .toll-rate-card-grid {
+  display: grid;
+}
+
+.toll-rate-card {
+  min-width: 0;
+  padding: 17px;
+  border: 1px solid #e2eaf5;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #fff 0%, #f7faff 100%);
+  box-shadow: 0 5px 15px rgba(16, 43, 80, 0.045);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.toll-rate-card:hover {
+  transform: translateY(-2px);
+  border-color: #b6cae4;
+  box-shadow: 0 10px 22px rgba(16, 43, 80, 0.09);
+}
+
+.toll-rate-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toll-route-code {
+  display: inline-flex;
+  min-width: 42px;
+  min-height: 25px;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 9px;
+  border-radius: 20px;
+  background: #eaf1fb;
+  color: #174b8d;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.toll-rate-card-top i {
+  color: #10264a;
+  font-size: 14px;
+}
+
+.toll-rate-card h3 {
+  min-height: 38px;
+  margin: 15px 0 13px;
+  color: #102b50;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.toll-rate-card-amount {
+  display: flex;
+  min-height: 42px;
+  align-items: baseline;
+  gap: 6px;
+  color: #10264a;
+  font-variant-numeric: tabular-nums;
+}
+
+.toll-rate-card-amount span {
+  color: #667991;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.toll-rate-card-amount strong {
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.toll-rate-card-caption {
+  margin: 7px 0 0;
+  color: #8290a4;
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.toll-rate-card.is-unavailable {
+  border-style: dashed;
+  background: #f8f9fc;
+}
+
+.toll-rate-card.is-unavailable .toll-rate-card-amount strong {
+  color: #64748b;
+  font-size: 17px;
+  letter-spacing: 0;
+}
+
+.toll-official-table-wrap {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.toll-official-table {
+  width: 100%;
+  min-width: 610px;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.toll-official-table th,
+.toll-official-table td {
+  padding: 14px 16px;
+  border-right: 1px solid #e6edf6;
+  border-bottom: 1px solid #e6edf6;
+  color: #263a57;
+  font-size: 13px;
+  line-height: 1.45;
+  vertical-align: middle;
+}
+
+.toll-official-table tr > :last-child {
+  border-right: 0;
+}
+
+.toll-official-table thead th {
+  background: #10264a;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.toll-official-table tbody tr:nth-child(even) {
+  background: #f7f9fd;
+}
+
+.toll-official-table tbody tr:last-child th,
+.toll-official-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.toll-official-table tbody th {
+  min-width: 205px;
+  color: #102b50;
+  font-weight: 600;
+  text-align: left;
+}
+
+.toll-official-table tbody td {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.toll-motorway-tables {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+}
+
+.toll-motorway-tables .toll-official-table-wrap {
+  border: 1px solid #e1e9f4;
+  border-radius: 12px;
+}
+
+.toll-motorway-tables .toll-official-table {
+  min-width: 790px;
+}
+
+.toll-motorway-tables .toll-official-table tbody th {
+  min-width: 235px;
+}
+
+.toll-rate-footnote {
+  margin: 12px 16px 16px;
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.toll-rate-footnote[hidden] {
+  display: none;
+}
+
+.toll-dashboard.has-dynamic-rates .toll-rate-footnote:not([hidden]) {
+  margin-top: 0;
+}
+
+.toll-currency-note {
+  margin-top: 16px;
+}
+
+.toll-rates-panel-heading {
+  cursor: default;
+}
+
+.toll-detail-toggle {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 7px;
+  flex: 0 0 auto;
+  padding: 8px 11px;
+  border: 1px solid rgba(245, 196, 81, 0.48);
+  border-radius: 9px;
+  background: rgba(245, 196, 81, 0.12);
+  color: #f5c451;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.toll-detail-toggle:hover {
+  background: #f5c451;
+  color: #102b50;
+}
+
+.toll-detail-toggle:focus-visible {
+  outline: 3px solid rgba(245, 196, 81, 0.5);
+  outline-offset: 3px;
+}
+
+.toll-detail-toggle[hidden] {
+  display: none;
+}
+
+.toll-detail-toggle i {
+  transition: transform 0.2s ease;
+}
+
+.toll-detail-toggle[aria-expanded="true"] i {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 600px) {
+  .toll-notice-summary {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 11px;
+    margin-bottom: 22px;
+    padding: 15px;
+  }
+
+  .toll-notice-icon,
+  .toll-rate-section-icon {
+    width: 39px;
+    height: 39px;
+    flex-basis: 39px;
+    font-size: 16px;
+  }
+
+  .toll-notice-summary p {
+    min-width: calc(100% - 55px);
+  }
+
+  .toll-notice-summary p strong {
+    font-size: 12px;
+  }
+
+  .toll-effective-label {
+    margin-left: 50px;
+    font-size: 10px;
+  }
+
+  .toll-rate-section {
+    margin-top: 22px;
+    border-radius: 16px;
+  }
+
+  .toll-rate-section-heading {
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .toll-rate-section-heading h2 {
+    font-size: 17px;
+  }
+
+  .toll-rate-unit {
+    font-size: 10px;
+  }
+
+  .toll-rate-card-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .toll-rate-card {
+    padding: 15px;
+  }
+
+  .toll-rate-card h3 {
+    min-height: 0;
+    margin: 11px 0 8px;
+  }
+
+  .toll-rate-card-amount {
+    min-height: 35px;
+  }
+
+  .toll-rate-card-amount strong {
+    font-size: 24px;
+  }
+
+  .toll-official-table th,
+  .toll-official-table td {
+    padding: 11px 12px;
+    font-size: 12px;
+  }
+
+  .toll-official-table thead th {
+    font-size: 11px;
+  }
+
+  .toll-motorway-tables {
+    gap: 12px;
+    padding: 10px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 950px) {
+  .toll-rate-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
